@@ -47,6 +47,7 @@ export default function BlogCard({ blog }) {
       <p
         className="text-site-typo text-base line-clamp-2"
         dangerouslySetInnerHTML={{ __html: blog.writeBlog }}
+        suppressHydrationWarning
       ></p>
       <div className="flex justify-between">
         <span className="font-medium text-site-main text-base">Read More</span>

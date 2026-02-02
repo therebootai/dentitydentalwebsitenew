@@ -35,11 +35,12 @@ export default function Home({ blogs, pagination, currentPage }) {
       description="Discover the best dental clinic in Kolkata at Dentity Dental. We provide advanced oral, dental, and facial treatments with state-of-the-art technology and expert dentists."
     >
       <Head>
-   
         <link rel="canonical" href="https://dentitydental.in/" />
 
-    
-        <meta property="og:title" content="Best Dental Clinic in Kolkata — Dentity Dental" />
+        <meta
+          property="og:title"
+          content="Best Dental Clinic in Kolkata — Dentity Dental"
+        />
         <meta
           property="og:description"
           content="Dentity Dental is the best dental clinic in Kolkata offering implants, root canal, braces, whitening and cosmetic dentistry. Book your appointment at our Gariahat & other Kolkata branches."
@@ -47,14 +48,15 @@ export default function Home({ blogs, pagination, currentPage }) {
         <meta property="og:url" content="https://dentitydental.in/" />
         <meta property="og:site_name" content="Dentity Dental" />
 
-      
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Dental Clinic in Kolkata — Dentity Dental" />
+        <meta
+          name="twitter:title"
+          content="Best Dental Clinic in Kolkata — Dentity Dental"
+        />
         <meta
           name="twitter:description"
           content="Dentity Dental is the best dental clinic in Kolkata offering implants, RCT, braces & cosmetic dentistry."
         />
-
 
         <script
           type="application/ld+json"
@@ -62,40 +64,42 @@ export default function Home({ blogs, pagination, currentPage }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Dentist",
-              "name": "Dentity Dental",
-              "url": "https://dentitydental.in/",
-              "logo": "https://dentitydental.in/images/logo.svg",
-              "image": ["https://dentitydental.in/images/dd-slider.jpg",
+              name: "Dentity Dental",
+              url: "https://dentitydental.in/",
+              logo: "https://dentitydental.in/images/logo.svg",
+              image: [
+                "https://dentitydental.in/images/dd-slider.jpg",
                 "https://dentitydental.in/images/toi-about.avif",
                 "https://dentitydental.in/images/gov-about.avif",
                 "https://dentitydental.in/images/gov2-about.avif",
                 "https://dentitydental.in/images/dd-toi-article.avif",
                 "https://dentitydental.in/images/newspaper-cut-out.avif",
               ],
-              "description":
+              description:
                 "Dentity Dental is the best dental clinic in Kolkata offering implants, root canal, braces and cosmetic dentistry.",
-              "telephone": "+919051553253",
-              "address": {
+              telephone: "+919051553253",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress":
+                streetAddress:
                   "Gate No 3, Gariahat Market (Old Block), Stall No G 11 !st Floor at Gariahat Crossing, 212, Rash Behari Ave, opposite Disha Eye Hospital Landmark Diagonally, opposite Traders Assembly",
-                "addressLocality": "Kolkata",
-                "addressRegion": "West Bengal",
-                "postalCode": "700019",
-                "addressCountry": "IN"
+                addressLocality: "Kolkata",
+                addressRegion: "West Bengal",
+                postalCode: "700019",
+                addressCountry: "IN",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": "22.519479162483485",
-                "longitude": "88.36585779530895"
+                latitude: "22.519479162483485",
+                longitude: "88.36585779530895",
               },
-              "openingHours": "Mo-Sa 09:00-21:00",
-              "sameAs": [
+              openingHours: "Mo-Sa 09:00-21:00",
+              sameAs: [
                 "https://www.facebook.com/dentitydentalgariahat",
-                "https://www.instagram.com/dentitydentalgariahat1"
-              ]
-            })
+                "https://www.instagram.com/dentitydentalgariahat1",
+              ],
+            }),
           }}
+          suppressHydrationWarning
         />
       </Head>
 
@@ -106,7 +110,11 @@ export default function Home({ blogs, pagination, currentPage }) {
       <OurBranchesSection />
       <TreatmentSection />
       <HomeEnquiry />
-      <HomeBlogList blogs={blogs} pagination={pagination} currentPage={currentPage} />
+      <HomeBlogList
+        blogs={blogs}
+        pagination={pagination}
+        currentPage={currentPage}
+      />
     </WebsiteTemplate>
   );
 }

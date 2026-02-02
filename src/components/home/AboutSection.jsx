@@ -80,6 +80,7 @@ const AboutSection = () => {
               <section
                 className="text-site-typo text-sm lg:text-sm/[21px] xlg:text-base/[26px]"
                 dangerouslySetInnerHTML={{ __html: item.text }}
+                suppressHydrationWarning
               ></section>
             </div>
           ))}

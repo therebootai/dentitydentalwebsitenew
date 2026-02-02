@@ -50,12 +50,13 @@ export default function BlogDetails({
               <p
                 className="text-site-typo text-lg text-justify"
                 dangerouslySetInnerHTML={{ __html: blog.writeBlog }}
+                suppressHydrationWarning
               />
             </div>
           </div>
           <div className="hidden md:flex flex-col gap-6 md:w-[40%] lg:w-[30%]">
             <div className="">
-              <SimilarBlogs relatedBlogs={relatedBlogs}/>
+              <SimilarBlogs relatedBlogs={relatedBlogs} />
             </div>
             <div>
               <EnquiryBox />

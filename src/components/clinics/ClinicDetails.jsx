@@ -23,6 +23,7 @@ export default function ClinicDetails({
         <h3
           className="text-site-typo md:text-lg text-base"
           dangerouslySetInnerHTML={{ __html: description }}
+          suppressHydrationWarning
         ></h3>
         <div className="flex flex-col gap-5 md:gap-3">
           <h1 className="text-base md:text-2xl font-medium text-site-main">

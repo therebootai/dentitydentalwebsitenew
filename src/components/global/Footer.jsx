@@ -1,15 +1,16 @@
 import { Facilities } from "@/lib/facilitiesDataList";
-import { Treatments } from "@/lib/treatmentDataList";
+import { fetchTreatments } from "@/lib/api/treatments";
 import { Clinic } from "@/lib/clinicsDataList";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegWindowClose } from "react-icons/fa";
 import EnquiryBox from "./EnquiryBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
+  const [treatments, setTreatments] = useState([]);
 
   const openModal = (componentName) => {
     setSelectedComponent(componentName);
@@ -29,9 +30,25 @@ export default function Footer() {
     return chunks;
   }
 
-  const treatmentGroups = chunkArray(Treatments);
+  useEffect(() => {
+    async function loadTreatments() {
+      try {
+        const domain = "dentitydental.in";
+
+        const res = await fetchTreatments({ domain });
+
+        setTreatments(res?.data || []);
+      } catch (error) {
+        console.error("Failed to load treatments", error);
+      }
+    }
+
+    loadTreatments();
+  }, []);
+  const treatmentGroups = chunkArray(treatments);
   const facilitiesGroup = Facilities.slice(0, 10) || [];
   const clinicGroup = Clinic || [];
+
 
   return (
     <footer className="bg-[url('/images/footer-bg.avif')] bg-cover bg-center">

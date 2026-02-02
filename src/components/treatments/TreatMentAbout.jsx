@@ -23,6 +23,7 @@ export default function TreatMentAbout({
           <h3
             className="text-site-typo md:text-lg text-base text-justify"
             dangerouslySetInnerHTML={{ __html: description }}
+            suppressHydrationWarning
           ></h3>
         </div>
         <div className="w-full lg:w-[30%] self-start">
@@ -98,6 +99,7 @@ export default function TreatMentAbout({
                     >
                       <span
                         dangerouslySetInnerHTML={{ __html: faq.question }}
+                        suppressHydrationWarning
                       />
                       <span
                         className={`transition-transform text-2xl duration-300 ${
@@ -125,6 +127,7 @@ export default function TreatMentAbout({
                         >
                           <div
                             dangerouslySetInnerHTML={{ __html: faq.answer }}
+                            suppressHydrationWarning
                           />
                         </div>
                       )}

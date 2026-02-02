@@ -1,5 +1,4 @@
 import { Clinic } from "@/lib/clinicsDataList";
-import { Treatments } from "@/lib/treatmentDataList";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";

@@ -29,7 +29,7 @@ export default function RelatedTreatment({ relatedTreatments }) {
                   <h3 className="text-lg font-medium text-site-main group-hover:text-blue-600 transition">
                     {treatment.treatmentName}
                   </h3>
-                  <p className="text-center" dangerouslySetInnerHTML={{__html: treatment.description.slice(0, 400)}}></p>
+                  <p className="text-center" dangerouslySetInnerHTML={{__html: treatment.description.slice(0, 400)}} suppressHydrationWarning></p>
                 </div>
               </div>
             </Link>
