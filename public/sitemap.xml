@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dentitydental.in/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Add static pages -->
+  <url><loc>https://dentitydental.in/about</loc></url>
+  <url><loc>https://dentitydental.in/media</loc></url>
+  <url><loc>https://dentitydental.in/awards</loc></url>
+  <url><loc>https://dentitydental.in/facilities</loc></url>
+  <url><loc>https://dentitydental.in/blogs</loc></url>
+  <url><loc>https://dentitydental.in/contact-us</loc></url>
+
+  <!-- Add clinic pages: you can script/generate these from clinicsDataList -->
+  <url><loc>https://dentitydental.in/clinics/best-dental-clinic-in-gariahat</loc></url>
+  <url><loc>https://dentitydental.in/clinics/best-dental-clinic-in-midnapore</loc></url>
+</urlset>
