@@ -171,7 +171,10 @@ export default function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
-                { label: "Our Treatments", href: "/treatments/smile-design" },
+                {
+                  label: "Our Treatments",
+                  href: `/treatments/${treatments[0]?.slug}`,
+                },
                 { label: "Our Facilities", href: "/facilities" },
                 {
                   label: "Our Clinics",
