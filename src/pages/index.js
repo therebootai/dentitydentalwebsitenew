@@ -6,28 +6,36 @@ import HomeEnquiry from "@/components/home/HomeEnquiry";
 import OurBranchesSection from "@/components/home/OurBranchesSection";
 import TreatmentSection from "@/components/home/TreatmentSection";
 import { fetchBlogs } from "@/lib/api/blogs";
+import { fetchSliders } from "@/lib/api/slider";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const page = Number(context.query.page) || 1;
   const domain = "dentitydental.in";
-
-  const res = await fetchBlogs({
-    page,
-    limit: 10,
-    domain,
-  });  
+  const [blogs, sliders] = await Promise.all([
+    fetchBlogs({
+      page,
+      limit: 10,
+      domain,
+    }),
+    fetchSliders({
+      page,
+      limit: 10,
+      domain,
+    }),    
+  ]);
   return {
     props: {
-      blogs: res?.data || [],
-      pagination: res?.paginations || null,
+      blogs: blogs?.data || [],
+      sliders: sliders?.data || [],
+      pagination: blogs?.paginations || null,
       currentPage: page,
     },
   };
 }
 
-export default function Home({ blogs, pagination, currentPage }) {
+export default function Home({ blogs, sliders, pagination, currentPage }) {
   
   return (
     <WebsiteTemplate
@@ -104,7 +112,7 @@ export default function Home({ blogs, pagination, currentPage }) {
       </Head>
 
       {/* Existing homepage sections */}
-      <Banner />
+      <Banner sliders={sliders} />
       <CertifiedSlider />
       <AboutSection />
       <OurBranchesSection />

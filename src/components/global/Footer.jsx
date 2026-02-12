@@ -199,7 +199,9 @@ export default function Footer() {
             <FooterList
               key={index}
               Treatments={group}
-              title={"Our Treatments"}
+              title="Our Treatments"
+              textKey="treatmentName"
+              linkKey="slug"
             />
           ))}
           <FooterList Treatments={facilitiesGroup} title="Our Facilities" />
@@ -238,8 +240,7 @@ function FooterList({
   title,
   textKey = "label",
   linkKey = "href",
-}) {
-  // Ensure Treatments is an array
+}) {  
   const safeTreatments = Array.isArray(Treatments) ? Treatments : [];
 
   return (
@@ -251,11 +252,14 @@ function FooterList({
         {safeTreatments.map((item, index) => (
           <li key={index}>
             <Link
-              href={item[linkKey] || "#"} // Default to "#" if linkKey is missing
+              href={
+                linkKey === "slug"
+                  ? `/treatments/${item.slug}`
+                  : item[linkKey] || "#"
+              }
               className="text-site-text hover:text-site-main"
             >
-              {item[textKey] || "Unnamed"}{" "}
-              {/* Default to "Unnamed" if textKey is missing */}
+              {item[textKey] || "Unnamed"}{" "}              
             </Link>
           </li>
         ))}
