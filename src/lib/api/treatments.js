@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://dentitydentaladminpanel.vercel.app";
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export async function fetchTreatments({
   page = 1,

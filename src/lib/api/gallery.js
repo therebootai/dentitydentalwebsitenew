@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://dentitydentaladminpanel.vercel.app";
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 // const API_BASE_URL = "http://localhost:3000";
 // gallery
 

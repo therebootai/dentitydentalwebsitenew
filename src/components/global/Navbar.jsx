@@ -246,7 +246,7 @@ export default function NavBar() {
                     <div>{navbar.name} </div>
                   </button>
                   {dropdownStates[index] && (
-                    <div className="absolute top-10 left-1/2 -translate-x-1/4 px-4 z-50  w-full flex justify-start">
+                    <div className="absolute top-10  -translate-x-1/4 px-4 z-50   flex justify-start">
                       <div
                         className={`grid bg-white/90 gap-2 ${getGridColumnsClass(
                           navbar.dropdownItems,

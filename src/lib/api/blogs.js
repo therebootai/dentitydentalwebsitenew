@@ -1,4 +1,5 @@
-const API_BASE_URL = "https://dentitydentaladminpanel.vercel.app";
+
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export async function fetchBlogs({
   page = 1,
@@ -13,7 +14,7 @@ export async function fetchBlogs({
   if (domain) params.append("domain", domain);
 
   const res = await fetch(
-    `${API_BASE_URL}/api/blogs?${params.toString()}`,
+    `${backendUrl}/api/blogs?${params.toString()}`,
     { cache: "no-store" }
   );
 
@@ -24,7 +25,7 @@ export async function fetchBlogs({
 
 
 export async function fetchSingleBlog(slug) {
-  const res = await fetch(`${API_BASE_URL}/api/blogs/${slug}`, {
+  const res = await fetch(`${backendUrl}/api/blogs/${slug}`, {
     cache: "no-store",
   });
 
