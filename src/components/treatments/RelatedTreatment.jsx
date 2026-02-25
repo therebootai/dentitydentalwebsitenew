@@ -4,9 +4,9 @@ import Image from "next/image";
 export default function RelatedTreatment({ relatedTreatments }) {
   return (
     <section className="flex flex-col relative gap-4 lg:gap-9 p-4 lg:p-8 xl:p-16">
-      <h1 className="text-lg md:text-3xl font-medium text-site-main">
+      <h2 className="text-lg md:text-3xl font-medium text-site-main">
         Related Treatments
-      </h1>
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {relatedTreatments.length > 0 &&

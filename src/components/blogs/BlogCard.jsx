@@ -13,12 +13,13 @@ export default function BlogCard({ blog }) {
       onClick={() => handelRedirect(blog.slug)}
     >
       <div>
-        <div className="relative min-h-[15rem]">
+        <div className="">
           <Image
-            fill
             src={blog.blogImg?.secure_url || ""}
             alt={blog.heading}
-            className="object-cover !h-[15rem] rounded-md"
+            width={1280}
+            height={720}
+            className="object-cover h-[15rem] rounded-md"
           />
         </div>
       </div>

@@ -49,9 +49,9 @@ const TreatmentSection = () => {
   return (
     <section className="xl:p-16 lg:p-8 p-4 flex flex-col gap-4">
       <section className="flex flex-col gap-1">
-        <h1 className="md:text-3xl text-xl font-semibold text-site-main">
+        <h2 className="md:text-3xl text-xl font-semibold text-site-main">
           See Our Most Popular Services
-        </h1>
+        </h2>
         <p className="md:text-lg text-xs text-site-typo">
           EVERY TOOTH IN A PERSON IS MORE VALUABLE THAN A DIAMOND. Smile is the
           first thing people notice when they meet one another. Smile is

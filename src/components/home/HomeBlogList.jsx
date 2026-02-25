@@ -19,12 +19,12 @@ export default function HomeBlogList({blogs, pagination, currentPage}) {
         <h3 className="text-lg md:text-3xl font-medium text-site-main">
           See Our Latest Helpful Blogs
         </h3>
-        <h1 className="text-site-typo md:text-lg text-base font-semibold">
+        <h4 className="text-site-typo md:text-lg text-base font-semibold">
           EVERY TOOTH IN A PERSON IS MORE VALUABLE THAN A DIAMOND. Smile is the
           first thing people notice when they meet one another. Smile is
           something that can change the world. So in our DENTITY DENTAL Clinics
           we create a confident smile for you.
-        </h1>
+        </h4>
       </section>
 
       <div className="w-full">
