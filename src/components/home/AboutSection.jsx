@@ -4,7 +4,22 @@ import useElementHeight from "@/hooks/useElementHeight";
 import WhyChooseUsSection from "../global/WhyChooseUsSection";
 
 const AboutSection = () => {
+  const [contentHeight, rightContentRef] = useElementHeight();
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const aboutcontent = [
     {
@@ -22,37 +37,39 @@ const AboutSection = () => {
       <section className="flex flex-col md:flex-row items-stretch gap-4 xlg:gap-8">
         <section
           className="flex flex-col gap-6 w-full md:w-[50%]"
+          style={{ height: isSmallScreen ? "auto" : `${contentHeight}px` }}
         >
-          <section className="flex flex-col gap-3 flex-1">
+          <section className="flex flex-col gap-3 h-[50%]">
             <Image
               src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"}
               alt="about us"
               height={582}
               width={720}
-              className=" w-full rounded-sm h-full object-cover "
+              className=" w-full rounded-sm h-[95%] object-cover "
             />
-            <h2 className="lg:text-xl text-base font-semibold text-site-text ">
+            <h2 className="lg:text-xl text-base font-semibold h-[5%] text-site-text ">
               Times of India Health Survey Ranking 2023
             </h2>
           </section>
-          <section className=" flex flex-col gap-2 flex-1">
+          <section className="h-[50%] flex flex-col gap-2">
             <Image
               src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004147/gov-about_zcvwzy.avif"}
               alt="about us"
               height={411}
               width={720}
-              className=" w-full rounded-sm h-full  object-cover"
+              className=" w-full rounded-sm h-[49%] object-cover"
             />
             <Image
               src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004152/gov2-about_f2swu1.avif"}
               alt="about us"
                height={411}
               width={720}
-              className=" w-full rounded-sm h-full object-cover"
+              className=" w-full rounded-sm h-[49%] object-cover"
             />
           </section>
         </section>
         <section
+          ref={rightContentRef}
           className="md:w-[50%] w-full flex flex-col gap-3 lg:gap-5 xlg:gap-8"
         >
           {aboutcontent.map((item, index) => (
