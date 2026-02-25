@@ -1,9 +1,21 @@
 import SubBanner from "@/components/global/SubBanner";
+import { getGlobalData } from "@/lib/staticData";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import Image from "next/image";
 import React from "react";
 
-const Awards = () => {
+export async function getStaticProps() {
+  const global = await getGlobalData();
+
+  return {
+    props: {
+      treatments: global.treatments,
+    },
+    revalidate: 60,
+  };
+}
+
+const Awards = ({treatments}) => {
   const awards = [
     {
       imgsrc: "/images/govornor-awards.jpg",
@@ -28,6 +40,7 @@ const Awards = () => {
       description={
         "Check out the latest awards and recognitions earned by Dentity Dental. ISO-certified and awarded as the No.1 dental clinic by the Times of India Health Survey."
       }
+      treatments={treatments}
     >
       <SubBanner heading={"Awards"} />
       <section className="xl:p-16 lg:p-8 p-4">

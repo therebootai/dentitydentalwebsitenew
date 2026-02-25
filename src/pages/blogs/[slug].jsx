@@ -3,35 +3,15 @@ import EnquiryBox from "@/components/global/EnquiryBox";
 import SubBanner from "@/components/global/SubBanner";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import Image from "next/image";
-import { fetchSingleBlog } from "@/lib/api/blogs";
+import { fetchBlogs, fetchSingleBlog } from "@/lib/api/blogs";
+import { getGlobalData } from "@/lib/staticData";
 
-export async function getServerSideProps(context) {
-  const { slug } = context.params;
-
-  try {
-    const res = await fetchSingleBlog(slug);
-    const [blog, relatedBlogs] = res?.data;
-
-    if (!blog) {
-      return { notFound: true };
-    }
-
-    return {
-      props: {
-        blog,
-        relatedBlogs,
-      },
-    };
-  } catch (error) {
-    return { notFound: true };
-  }
-}
 
 export default function BlogDetails({
- blog, relatedBlogs
+ blog, relatedBlogs, treatments
 }) {
   return (
-    <WebsiteTemplate title={blog.metaTitle} description={blog.metadescription}>
+    <WebsiteTemplate title={blog.metaTitle} description={blog.metadescription} treatments={treatments}>
       <SubBanner heading={`Dentity Dental Blogs | ${blog.blogTitle}`} />
       <main className="xl:p-16 lg:p-8 p-4 flex flex-col gap-8">
         <div className="flex gap-6">
@@ -66,4 +46,50 @@ export default function BlogDetails({
       </main>
     </WebsiteTemplate>
   );
+}
+
+export async function getStaticPaths() {
+  const domain = "dentitydental.in";
+
+  const res = await fetchBlogs({
+    page: 1,
+    limit: 10,
+    domain,
+  });
+
+  const blogs = res?.data || [];
+
+  const paths = blogs.map((blog) => ({
+    params: { slug: blog.slug },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  const global = await getGlobalData();
+
+  try {
+    const res = await fetchSingleBlog(slug);
+    const [blog, relatedBlogs] = res?.data || [];
+
+    if (!blog) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        blog,
+        relatedBlogs: relatedBlogs || [],
+        treatments: global.treatments || [],
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
 }

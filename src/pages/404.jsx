@@ -1,4 +1,5 @@
 import SubBanner from "@/components/global/SubBanner";
+import { getGlobalData } from "@/lib/staticData";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import Head from "next/head";
 import Image from "next/image";
@@ -6,11 +7,24 @@ import Link from "next/link";
 import React from "react";
 import { GoHome } from "react-icons/go";
 
-const Custom404 = () => {
+export async function getStaticProps() {
+  const global = await getGlobalData();
+
+  return {
+    props: {
+      treatments: global.treatments,
+    },
+    revalidate: 60,
+  };
+}
+
+
+const Custom404 = ({treatments}) => {
   return (
     <WebsiteTemplate
       title={" Dentity Dental -Best Dental Clinic In Kolkata - Page Not Found"}
       description={""}
+      treatments={treatments}
     >
       <SubBanner heading={"404 Page Not Found"} />
       <main className="xl:p-16 lg:p-8 p-4 flex justify-center items-center  flex-col lg:gap-6 gap-4 xl:gap-8">

@@ -1,50 +1,17 @@
 import { Clinic } from "@/lib/clinicsDataList";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import BranchServiceCard from "../global/BranchServiceCard";
 
-const Slider = dynamic(() => import("react-slick"), {
-  ssr: false,
-});
+import "swiper/css";
+
 export default function RelatedClinics({ currentQuery }) {
-  const [slidesToShow, setSlidesToShow] = useState(3);
+  // ✅ Safe slug
+  const safeQuery = currentQuery || "";
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 260) {
-        setSlidesToShow(2);
-      } else if (window.innerWidth <= 600) {
-        setSlidesToShow(2);
-      } else if (window.innerWidth <= 860) {
-        setSlidesToShow(3);
-      } else {
-        setSlidesToShow(3);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const settings = {
-    infinite: true,
-    slidesToShow: slidesToShow,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 6000,
-    autoplaySpeed: 500,
-    arrows: false,
-    centerPadding: "20px",
-    lazyLoad: "ondemand",
-  };
-
-  const relatedClinics = Clinic.filter(
-    (clinic) => !clinic.href.includes(currentQuery)
+  // ✅ Safe filter (no crash during build)
+  const relatedClinics = (Clinic || []).filter(
+    (clinic) => !clinic?.href?.includes(safeQuery)
   );
 
   const clinics = relatedClinics.map((item) => ({
@@ -55,25 +22,39 @@ export default function RelatedClinics({ currentQuery }) {
     href: item.href,
   }));
 
+  if (clinics.length === 0) return null;
+
   return (
-    <section className="flex flex-col relative gap-4 lg:gap-9 p-4 lg:p-8 xl:p-16">
-      <h1 className="text-lg md:text-3xl font-medium text-site-main">
+    <section className="flex flex-col gap-4 lg:gap-9 p-4 lg:p-8 xl:p-16">
+      <h2 className="text-lg md:text-3xl font-medium text-site-main">
         See Our Related Branches
-      </h1>
-      <h3 className="text-site-typo md:text-lg text-base">
-        EVERY TOOTH IN A PERSON IS MORE VALUABLE THAN A DIAMOND. Smile is the
-        first thing people notice when they meet one another. Smile is something
-        that can change the world. So in our DENTITY DENTAL Clinics we create a
-        confident smile for you.
-      </h3>
+      </h2>
+
+      <p className="text-site-typo md:text-lg text-base">
+        EVERY TOOTH IN A PERSON IS MORE VALUABLE THAN A DIAMOND.
+        Smile is the first thing people notice when they meet one another.
+      </p>
+
       <section className="w-full">
-        <Slider {...settings}>
+        <Swiper
+          spaceBetween={15}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          modules={[Autoplay]}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            600: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
           {clinics.map((item, index) => (
-            <div key={index} className="xl:px-3 px-2">
-              <BranchServiceCard content={item} />
-            </div>
+            <SwiperSlide key={index}>
+              <div className="xl:px-3 px-2">
+                <BranchServiceCard content={item} />
+              </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </section>
     </section>
   );

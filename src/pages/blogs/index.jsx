@@ -3,26 +3,32 @@ import SubBanner from "@/components/global/SubBanner";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import { fetchBlogs } from "@/lib/api/blogs";
 import { useRouter } from "next/router";
+import { getGlobalData } from "@/lib/staticData";
 
 export async function getServerSideProps(context) {
   const page = Number(context.query.page) || 1;
   const domain = "dentitydental.in";
 
-  const res = await fetchBlogs({
-    page,
-    limit: 12,
-    domain,
-  });  
+    const [res, global] = await Promise.all([
+      fetchBlogs({
+        page,
+        limit: 12,
+        domain,
+      }),
+      getGlobalData(),
+    ]);
+ 
   return {
     props: {
       blogs: res?.data || [],
       pagination: res?.paginations || null,
       currentPage: page,
+      treatments: global.treatments || [],
     },
   };
 }
 
-export default function Blogs({ blogs, pagination, currentPage }) {
+export default function Blogs({ blogs, pagination, currentPage, treatments }) {
   const router = useRouter();
 
   const totalPages = pagination?.totalPages || 1;
@@ -35,6 +41,7 @@ export default function Blogs({ blogs, pagination, currentPage }) {
     <WebsiteTemplate
       title="Dentity Dental Blogs | Dental Care Tips & Updates"
       description="Explore the latest blogs by Dentity Dental."
+      treatments={treatments}
     >
       <SubBanner heading="Blogs" />
 

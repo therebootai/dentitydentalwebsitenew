@@ -3,7 +3,9 @@ import RelatedClinics from "@/components/clinics/RelatedClinics";
 import SubBanner from "@/components/global/SubBanner";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import { Clinic as AllClinic } from "@/lib/clinicsDataList";
-import { useRouter } from "next/router";
+import { getGlobalData } from "@/lib/staticData";
+
+
 
 export default function Clinic({
   metatitle,
@@ -19,10 +21,10 @@ export default function Clinic({
   phone,
   fblink,
   instaLink,
+  treatments
 }) {
-  const router = useRouter();
   return (
-    <WebsiteTemplate title={metatitle} description={metadescription}>
+    <WebsiteTemplate title={metatitle} description={metadescription} treatments={treatments}>
       <SubBanner heading="Our Clinics" />
       <ClinicDetails
         title={title}
@@ -36,7 +38,7 @@ export default function Clinic({
         fblink={fblink}
         instaLink={instaLink}
       />
-      <RelatedClinics currentQuery={router.query.clinic} />
+      <RelatedClinics currentQuery={href.split("/")[2]} />
     </WebsiteTemplate>
   );
 }
@@ -51,11 +53,12 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false, // Set to 'blocking' if you want fallback pages
+    fallback: false, 
   };
 };
 
 export const getStaticProps = async ({ params }) => {
+  const global = await getGlobalData();
   const clinicData = AllClinic.reduce((acc, item) => {
     const key = item.href.split("/")[2];
     acc[key] = {
@@ -102,6 +105,8 @@ export const getStaticProps = async ({ params }) => {
       phone: data.phone,
       fblink: data.fblink,
       instaLink: data.instaLink,
+       treatments: global.treatments || [],
     },
+    revalidate: 60,
   };
 };
