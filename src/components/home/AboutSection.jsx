@@ -1,25 +1,9 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import useElementHeight from "@/hooks/useElementHeight";
+import React from "react";
 import WhyChooseUsSection from "../global/WhyChooseUsSection";
 
 const AboutSection = () => {
-  const [contentHeight, rightContentRef] = useElementHeight();
 
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const aboutcontent = [
     {
@@ -35,41 +19,44 @@ const AboutSection = () => {
   return (
     <div className="flex flex-col gap-4 md:gap-8 xlg:gap-16 xl:p-16 lg:p-8 p-4">
       <section className="flex flex-col md:flex-row items-stretch gap-4 xlg:gap-8">
-        <section
-          className="flex flex-col gap-6 w-full md:w-[50%]"
-          style={{ height: isSmallScreen ? "auto" : `${contentHeight}px` }}
-        >
-          <section className="flex flex-col gap-3 h-[50%]">
-            <Image
-              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"}
-              alt="about us"
-              height={582}
-              width={720}
-              className=" w-full rounded-sm h-[95%] object-cover "
-            />
-            <h2 className="lg:text-xl text-base font-semibold h-[5%] text-site-text ">
+      <section className="flex flex-col gap-6 w-full md:w-[50%]">
+          {/* Top Image Container */}
+          <div className="flex flex-col gap-3 flex-1">
+            <div className="relative w-full h-[300px] md:h-full min-h-[250px]">
+              <Image
+                src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"
+                alt="Times of India Health Survey Ranking"
+                fill
+                priority // LCP ইমেজের জন্য priority যোগ করুন
+                className="rounded-sm object-cover"
+              />
+            </div>
+            <h2 className="lg:text-xl text-base font-semibold text-site-text">
               Times of India Health Survey Ranking 2023
             </h2>
-          </section>
-          <section className="h-[50%] flex flex-col gap-2">
-            <Image
-              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004147/gov-about_zcvwzy.avif"}
-              alt="about us"
-              height={411}
-              width={720}
-              className=" w-full rounded-sm h-[49%] object-cover"
-            />
-            <Image
-              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004152/gov2-about_f2swu1.avif"}
-              alt="about us"
-               height={411}
-              width={720}
-              className=" w-full rounded-sm h-[49%] object-cover"
-            />
-          </section>
+          </div>
+
+          {/* Bottom Images Container */}
+          <div className="flex flex-col gap-2 flex-1">
+             <div className="relative w-full h-1/2 min-h-[150px]">
+                <Image
+                  src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004147/gov-about_zcvwzy.avif"
+                  alt="Award image 1"
+                  fill
+                  className="rounded-sm object-cover"
+                />
+             </div>
+             <div className="relative w-full h-1/2 min-h-[150px]">
+                <Image
+                  src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004152/gov2-about_f2swu1.avif"
+                  alt="Award image 2"
+                  fill
+                  className="rounded-sm object-cover"
+                />
+             </div>
+          </div>
         </section>
         <section
-          ref={rightContentRef}
           className="md:w-[50%] w-full flex flex-col gap-3 lg:gap-5 xlg:gap-8"
         >
           {aboutcontent.map((item, index) => (
