@@ -51,7 +51,7 @@ export default function Footer() {
 
 
   return (
-    <footer className="bg-[url('/images/footer-bg.avif')] bg-cover bg-center">
+    <footer className="bg-[url('https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000518/footer-bg_xcgvam.avif')] bg-cover bg-center">
       <div className="flex flex-col gap-12 bg-white/70 xl:p-16 lg:p-8 p-4 flex-1">
         <div className="grid gap-4 lg:gap-10 grid-cols-1 lg:grid-cols-4 justify-between">
           <div className="flex flex-col gap-3 lg:gap-2 xlg:gap-3 justify-between">

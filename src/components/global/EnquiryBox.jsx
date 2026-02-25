@@ -36,12 +36,7 @@ export default function EnquiryBox() {
 
   return (
     <div className="relative w-full p-4 lg:p-6 rounded-md">
-      <div
-        className="absolute inset-0 bg-cover bg-center rounded-md"
-        style={{
-          backgroundImage: "url('/images/footer-bg.avif')",
-        }}
-      ></div>
+    
 
       <div className="absolute inset-0 bg-site-gray rounded-md opacity-80 bg-opacity-80"></div>
 

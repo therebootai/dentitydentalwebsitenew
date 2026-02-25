@@ -111,6 +111,8 @@ export default function Home({ blogs, sliders, pagination, currentPage }) {
         />
       </Head>
 
+      
+
       {/* Existing homepage sections */}
       <Banner sliders={sliders} />
       <CertifiedSlider />
