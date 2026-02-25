@@ -17,17 +17,23 @@ export default function Banner({sliders}) {
                 disableOnInteraction: false,
               }}
             >
-              {sliders.filter((slide) => slide.status)?.map((slide, index) => (
-                <SwiperSlide key={index}>
-                  <Image
-                    src={slide.slider_image.secure_url}
-                    alt={slide.slider_name}
-                    width={1440}
-                    height={500}
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-              ))}
+              {sliders
+  .filter((slide) => slide.status)
+  .map((slide, index) => (
+    <SwiperSlide key={index}>
+      <Image
+        src={slide.slider_image.secure_url}
+        alt={slide.slider_name}
+        width={1440}
+        height={500}
+        priority={index === 0}
+        fetchPriority={index === 0 ? "high" : "auto"}
+        loading={index === 0 ? "eager" : "lazy"}
+        sizes="100vw"
+        className="w-full h-auto object-cover"
+      />
+    </SwiperSlide>
+))}
             </Swiper>
           </div>          
         </section>

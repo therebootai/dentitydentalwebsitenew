@@ -22,12 +22,13 @@ const AboutSection = () => {
       <section className="flex flex-col gap-6 w-full md:w-[50%]">
           {/* Top Image Container */}
           <div className="flex flex-col gap-3 flex-1">
-            <div className="relative w-full h-[300px] md:h-full min-h-[250px]">
+            <div className="relative w-full aspect-[720/582] md:h-full overflow-hidden">
               <Image
                 src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"
                 alt="Times of India Health Survey Ranking"
                 fill
-                priority // LCP ইমেজের জন্য priority যোগ করুন
+                loading="lazy" 
+                sizes="(max-width: 768px) 100vw, 50vw" 
                 className="rounded-sm object-cover"
               />
             </div>
@@ -36,13 +37,15 @@ const AboutSection = () => {
             </h2>
           </div>
 
-          {/* Bottom Images Container */}
+         
           <div className="flex flex-col gap-2 flex-1">
              <div className="relative w-full h-1/2 min-h-[150px]">
                 <Image
                   src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004147/gov-about_zcvwzy.avif"
                   alt="Award image 1"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                   className="rounded-sm object-cover"
                 />
              </div>
@@ -51,6 +54,8 @@ const AboutSection = () => {
                   src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004152/gov2-about_f2swu1.avif"
                   alt="Award image 2"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                   className="rounded-sm object-cover"
                 />
              </div>
