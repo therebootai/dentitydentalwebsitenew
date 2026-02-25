@@ -14,16 +14,16 @@ export default function HomeEnquiry() {
         <Image
           src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000510/dd-toi-article_xg23me.avif"
           alt="times of india article"
-          width={636}
-          height={540}
+          width={1320}
+          height={2072}
           className="w-full h-full object-cover rounded-md blur-[2px]"
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <Image
-            src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000530/newspaper-cut-out_tvdt0a.avif"
+            src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/newspaper-cut-out_ztx5uv.avif"
             alt="times of india article 2"
-            width={540}
-            height={540}
+            width={720}
+            height={1130}
             className="object-cover w-full"
           />
         </div>

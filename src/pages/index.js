@@ -7,40 +7,38 @@ import OurBranchesSection from "@/components/home/OurBranchesSection";
 import TreatmentSection from "@/components/home/TreatmentSection";
 import { fetchBlogs } from "@/lib/api/blogs";
 import { fetchSliders } from "@/lib/api/slider";
+import { fetchTreatments } from "@/lib/api/treatments";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import Head from "next/head";
 
-export async function getServerSideProps(context) {
-  const page = Number(context.query.page) || 1;
+export async function getStaticProps() {
   const domain = "dentitydental.in";
-  const [blogs, sliders] = await Promise.all([
-    fetchBlogs({
-      page,
-      limit: 10,
-      domain,
-    }),
-    fetchSliders({
-      page,
-      limit: 10,
-      domain,
-    }),    
+
+  const [blogs, sliders, treatments] = await Promise.all([
+    fetchBlogs({ page: 1, limit: 10, domain }),
+    fetchSliders({ page: 1, limit: 10, domain }),
+    fetchTreatments({ domain }),
   ]);
+
   return {
     props: {
       blogs: blogs?.data || [],
       sliders: sliders?.data || [],
+      treatments: treatments?.data || [],
       pagination: blogs?.paginations || null,
-      currentPage: page,
+      currentPage: 1,
     },
+    revalidate: 60, 
   };
 }
 
-export default function Home({ blogs, sliders, pagination, currentPage }) {
+export default function Home({ blogs, sliders, pagination, currentPage, treatments }) {
   
   return (
     <WebsiteTemplate
       title="Best Dental Clinic in Kolkata - Dentity Dental"
       description="Discover the best dental clinic in Kolkata at Dentity Dental. We provide advanced oral, dental, and facial treatments with state-of-the-art technology and expert dentists."
+       treatments={treatments}
     >
       <Head>
         <link rel="canonical" href="https://dentitydental.in/" />

@@ -41,10 +41,10 @@ const AboutSection = () => {
         >
           <section className="flex flex-col gap-3 h-[50%]">
             <Image
-              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000539/toi-about_s3fwts.avif"}
+              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"}
               alt="about us"
-              height={648}
-              width={801}
+              height={582}
+              width={720}
               className=" w-full rounded-sm h-[95%] object-cover "
             />
             <h1 className="lg:text-xl text-base font-semibold h-[5%] text-site-text ">
@@ -53,17 +53,17 @@ const AboutSection = () => {
           </section>
           <section className="h-[50%] flex flex-col gap-2">
             <Image
-              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000524/gov-about_ed0crx.avif"}
+              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004147/gov-about_zcvwzy.avif"}
               alt="about us"
-              height={450}
-              width={789}
+              height={411}
+              width={720}
               className=" w-full rounded-sm h-[49%] object-cover"
             />
             <Image
-              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000521/gov2-about_mmovvp.avif"}
+              src={"https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004152/gov2-about_f2swu1.avif"}
               alt="about us"
-              height={450}
-              width={789}
+               height={411}
+              width={720}
               className=" w-full rounded-sm h-[49%] object-cover"
             />
           </section>

@@ -16,7 +16,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4410.195364675532!2d88.3681841!3d22.520665500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027753aa2e0389%3A0xeb042192cab512a5!2sDentity%20Dental%20Gariahat!5e1!3m2!1sen!2sin!4v1735033270000!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-gariahat",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001121/dd-gariahat_v5rjlc.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003837/dd-gariahat_kvrb1l.avif",
     navLabel: "Dentity Dental Gariahat",
     instaLink: "https://www.instagram.com/dentitydentalgariahat1/",
     fblink: "https://www.facebook.com/dentitydentalgariahat",
@@ -39,7 +39,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1102.8565598117466!2d88.35649516962118!3d22.482067537902232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0270e4965966d1%3A0xf8212c7157dbec3e!2sDentity%20Dental%20Tollygunge%20Netaji%20Nagar%20(Ace%20Dental%20Care%202)!5e1!3m2!1sen!2sin!4v1735033437744!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-tollygunge-netajinagar",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001121/dd-netajinagar_bfggsu.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003839/dd-netajinagar_mziavv.avif",
     navLabel: "Dentity Dental Tollygunge Netaji Nagar",
     instaLink: "#",
     fblink: "https://www.facebook.com/dentitydentaltollygungenetajinagar",
@@ -62,7 +62,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4411.584866760507!2d88.35752719999999!3d22.4770887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271b86bc35713%3A0xba86d739a800219!2sDentity%20Dental%20Tollygunge%20Suryanagar%20-%20Best%20Dental%20Clinic%20in%20Tollygunge%20(Ace%20Dental%20Care%20)!5e1!3m2!1sen!2sin!4v1735019243934!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-tollygunge-suryanagar",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001124/dd-surayanagar_bbfsla.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003931/dd-surayanagar_il07n6.avif",
     navLabel: "Dentity Dental Tollygunge Suryanagar",
     instaLink: "https://www.instagram.com/dentitydentaltollygunge/",
     fblink: "https://www.facebook.com/dentitydentaltollygungesuryanagar",
@@ -85,7 +85,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4412.744684628937!2d88.42809199999999!3d22.440653700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02726925c11895%3A0xdedc84514ee59ec!2sDentity%20Dental%20Sonarpur%20(%20Relief%20Dental%20Clinic%20)%20%7C%20Best%20Dental%20Clinic%20in%20Sonarpur!5e1!3m2!1sen!2sin!4v1735019520006!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-sonarpur",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001123/dd-sonarpur_ez1num.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003833/dd-sonarpur_hshfw2.avif",
     navLabel: "Dentity Dental Sonarpur",
     instaLink: "https://www.instagram.com/dentitydentalsonarpur/",
     fblink: "https://www.facebook.com/dentitydentalsonarpur",
@@ -109,7 +109,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4406.504957534417!2d88.4109816!3d22.636015900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89f9b0dc8575b%3A0xa2a420ef56dfe5df!2sDentity%20Dental%20Dental%20Clinic!5e1!3m2!1sen!2sin!4v1735020142272!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-dumdum",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001120/dd-dum-dum-cantonment_hkose6.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003835/dd-dum-dum-cantonment_aatgis.avif",
     navLabel: "Dentity Dental Dum Dum Cantonment",
     instaLink: "https://www.instagram.com/dentitydentaldumdumcantonment/",
     fblink: "https://www.facebook.com/dentitydentaldumdumcantonment",
@@ -133,7 +133,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4406.989783081928!2d88.437739!3d22.6208936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89f2598f9964d%3A0xd5bd75b67b459a2f!2sDentity%20Dental!5e1!3m2!1sen!2sin!4v1735020938147!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-rajarhat-newtown",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001122/dd-rajathat-newtown_daym1v.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003832/dd-rajathat-newtown_udwbxh.avif",
     navLabel: "Dentity Dental Rajarhat Teghoria Newtown",
     instaLink: "https://www.instagram.com/rajarhatdentitydental/",
     fblink: "https://www.facebook.com/dentitydentalrajarhat",
@@ -156,7 +156,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4406.989783081928!2d88.437739!3d22.6208936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89f2598f9964d%3A0xd5bd75b67b459a2f!2sDentity%20Dental!5e1!3m2!1sen!2sin!4v1735021130725!5m2!1sen!2sin",
     href: "/clinics/best-dentalclinic-in-teghoria",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001126/dd-teghoria_wdrugk.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003833/dd-teghoria_kvfepk.avif",
     navLabel: "Dentity Dental Teghoria",
     instaLink: "https://www.instagram.com/dentitydentalteghoria1/",
     fblink: "https://www.facebook.com/dentitydentalteghoria",
@@ -180,7 +180,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4408.811605548827!2d88.396496!3d22.5639829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277b4ed425d19%3A0xd29be4179cb1a6b!2sDentity%20Dental%20Beleghata%20CIT%20More!5e1!3m2!1sen!2sin!4v1735021255669!5m2!1sen!2sin",
     href: "/clinics/best-dental-clinic-in-beleghata",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001120/dd-beleghata_i0lrhf.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004620/dd-beleghata_pxvp5z.avif",
     navLabel: "Dentity Dental Beleghata",
     instaLink: "#",
     fblink: "https://www.facebook.com/dentitydentalbeleghata/",
@@ -202,7 +202,7 @@ const clinics = [
     iframeSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4413.348213021104!2d87.32017359999999!3d22.421672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d5bf6d4256ae9%3A0x39d5dd77cb5ab120!2sDr.%20Saikat%20Paul%20(Dental%20Mid%20World)%20-%20Best%20Dentist%20in%20Midnapore!5e1!3m2!1sen!2sin!4v1735021353511!5m2!1sen!2sin",
     href: "/clinics/best-dentist-in-midnapore",
-    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772001127/dr-saikat-paul_jf4opk.jpg",
+    cover: "https://res.cloudinary.com/dfhfdirbu/image/upload/v1772003834/dr-saikat-paul_zptw3h.avif",
     navLabel: "Dr. Saikat Paul (Dental Mid World)",
     instaLink: "#",
     fblink: "https://www.facebook.com/dentalmidworlddrsaikatpaul",

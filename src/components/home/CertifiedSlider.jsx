@@ -1,45 +1,11 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function CertifiedSlider() {
-  const [slidesToShow, setSlidesToShow] = useState(4);
-  const [autoplay, setAutoplay] = useState(true);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 350) {
-        setSlidesToShow(1);
-        setAutoplay(true);
-      } else if (window.innerWidth <= 460) {
-        setSlidesToShow(2);
-        setAutoplay(true);
-      } else if (window.innerWidth <= 860) {
-        setSlidesToShow(3);
-        setAutoplay(true);
-      } else if (window.innerWidth <= 1224) {
-        setSlidesToShow(3);
-        setAutoplay(true);
-      } else if (window.innerWidth <= 1380) {
-        setSlidesToShow(4);
-        setAutoplay(true);
-      } else if (window.innerWidth <= 1780) {
-        setSlidesToShow(4);
-        setAutoplay(true);
-      } else {
-        setSlidesToShow(4);
-        setAutoplay(true);
-      }
-    };
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const experience = [
     { icon: "/acknowledgement/iso-globe.svg", name: "ISO 9001:2015 Certified" },
@@ -65,12 +31,18 @@ export default function CertifiedSlider() {
     <div className="w-full xl:p-16 lg:p-8 p-4">
       <Swiper
         spaceBetween={10}
-        slidesPerView={slidesToShow}
-        autoplay={
-          autoplay ? { delay: 3000, disableOnInteraction: false } : false
+        autoplay={ { delay: 3000, disableOnInteraction: false }
         }
         loop={true}
         modules={[Autoplay]}
+          breakpoints={{
+    0: { slidesPerView: 1 },
+    350: { slidesPerView: 2 },
+    460: { slidesPerView: 2 },
+    860: { slidesPerView: 3 },
+    1224: { slidesPerView: 3 },
+    1380: { slidesPerView: 4 },
+  }}
         className="rounded-l-full rounded-r-full overflow-hidden"
       >
         {experience.map((item, index) => (
@@ -82,7 +54,7 @@ export default function CertifiedSlider() {
               <section className="w-full h-[2rem] md:h-[4rem] relative ">
                 <Image
                   src={item.icon}
-                  alt=""
+                  alt={item.name}
                   fill
                   className="w-full object-contain"
                 />

@@ -6,9 +6,8 @@ import { useEffect, useState } from "react";
 import { RiCloseLine, RiMenuAddLine } from "react-icons/ri";
 import { FaRegWindowClose } from "react-icons/fa";
 import EnquiryBox from "./EnquiryBox";
-import { fetchTreatments } from "@/lib/api/treatments";
 
-export default function NavBar() {
+export default function NavBar({treatments }) {
   const [dropdownStates, setDropdownStates] = useState({});
   const [menuopen, setMenuopen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +17,7 @@ export default function NavBar() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
 
-  const [treatments, setTreatments] = useState([]);
+
 
 
   const openModal = (componentName) => {
@@ -56,22 +55,6 @@ export default function NavBar() {
       [index]: !dropdownStates[index],
     });
   };
-
-  useEffect(() => {
-    async function loadTreatments() {
-      try {
-        const domain = "dentitydental.in";
-
-        const res = await fetchTreatments({ domain });
-
-        setTreatments(res?.data || []);
-      } catch (error) {
-        console.error("Failed to load treatments", error);
-      }
-    }
-
-    loadTreatments();
-  }, []);
 
 
   const NavElement = [

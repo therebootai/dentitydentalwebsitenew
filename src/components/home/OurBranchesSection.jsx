@@ -1,44 +1,11 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import BranchServiceCard from "../global/BranchServiceCard";
 import { Clinic } from "@/lib/clinicsDataList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 const OurBranchesSection = () => {
-  const [slidesToShow, setSlidesToShow] = useState(4);
-  const [autoplay, setAutoplayMode] = useState(true);
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 260) {
-        setSlidesToShow(1);
-        setAutoplayMode(true);
-      } else if (window.innerWidth <= 600) {
-        setSlidesToShow(1);
-        setAutoplayMode(true);
-      } else if (window.innerWidth <= 860) {
-        setSlidesToShow(2);
-        setAutoplayMode(true);
-      } else if (window.innerWidth <= 1024) {
-        setSlidesToShow(3);
-        setAutoplayMode(true);
-      } else if (window.innerWidth <= 1780) {
-        setSlidesToShow(3);
-        setAutoplayMode(true);
-      } else {
-        setSlidesToShow(3);
-        setAutoplayMode(true);
-      }
-    };
 
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const clinics = Clinic.map((item) => ({
     imgsrc: item.cover,
@@ -63,12 +30,18 @@ const OurBranchesSection = () => {
       <section className="w-full">
         <Swiper
           spaceBetween={10}
-          slidesPerView={slidesToShow}
-          autoplay={
-            autoplay ? { delay: 3000, disableOnInteraction: false } : false
+          autoplay={ { delay: 3000, disableOnInteraction: false } 
           }
           loop={true}
           modules={[Autoplay]}
+          breakpoints={{
+    0: { slidesPerView: 1 },
+    350: { slidesPerView: 1 },
+    460: { slidesPerView: 1 },
+    860: { slidesPerView: 2 },
+    1224: { slidesPerView: 3 },
+    1380: { slidesPerView: 3 },
+  }}
         >
           {clinics.map((item, index) => (
             <SwiperSlide key={index} className="xl:px-3 px-2 h-full">

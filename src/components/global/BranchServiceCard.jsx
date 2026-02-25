@@ -15,8 +15,8 @@ const BranchServiceCard = ({ content }) => {
         <Image
           src={imgsrc}
           alt={label}
-          width={624}
-          height={459}
+          width={720}
+          height={530}
           className="w-full md:h-[13rem] h-[8rem] sm:h-[10rem] lg:h-[17rem] xlg:h-[19rem]  object-cover"
         />
 

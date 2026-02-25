@@ -41,19 +41,19 @@ export default function BlogCard({ blog }) {
           </span>
         </div>      
       </div>
-      <h1 className="text-site-main text-base lg:text-lg font-medium line-clamp-1">
+      <h2 className="text-site-main text-base lg:text-lg font-medium line-clamp-1">
         {blog.blogTitle}
-      </h1>
-      <p
+      </h2>
+      <div
         className="text-site-typo text-base line-clamp-2"
         dangerouslySetInnerHTML={{ __html: blog.writeBlog }}
         suppressHydrationWarning
-      ></p>
+      ></div>
       <div className="flex justify-between">
-        <span className="font-medium text-site-main text-base">Read More</span>
-        <span className="text-white bg-site-main rounded-full p-2 text-sm inline-flex items-center gap-1">
+        <div className="font-medium text-site-main text-base">Read More</div>
+        <div className="text-white bg-site-main rounded-full p-2 text-sm inline-flex items-center gap-1">
           <MdArrowOutward className="text-lg" />
-        </span>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import BlogCard from "../blogs/BlogCard";
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useRouter } from "next/router";
@@ -13,40 +12,6 @@ export default function HomeBlogList({blogs, pagination, currentPage}) {
       router.push(`/?page=${page}`);
     };
 
-  const [slidesToShow, setSlidesToShow] = useState(3);
-  const [autoslide, setAutoslide] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 340) {
-        setSlidesToShow(1);
-        setAutoslide(true);
-      } else if (window.innerWidth <= 560) {
-        setSlidesToShow(1);
-        setAutoslide(true);
-      } else if (window.innerWidth <= 860) {
-        setSlidesToShow(2);
-        setAutoslide(true);
-      } else if (window.innerWidth <= 1024) {
-        setSlidesToShow(3);
-        setAutoslide(true);
-      } else if (window.innerWidth <= 1780) {
-        setSlidesToShow(4);
-        setAutoslide(true);
-      } else {
-        setSlidesToShow(4);
-        setAutoslide(true);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <div className="flex flex-col gap-8 xl:p-16 lg:p-8 p-4 ">
@@ -65,13 +30,22 @@ export default function HomeBlogList({blogs, pagination, currentPage}) {
       <div className="w-full">
         <Swiper
           spaceBetween={5}
-          slidesPerView={slidesToShow}
-          autoplay={
-            autoslide ? { delay: 3000, disableOnInteraction: false } : false
+          autoplay={ { delay: 3000, disableOnInteraction: false } 
           }
           loop={true}
           modules={[Autoplay]}
+          breakpoints={{
+    0: { slidesPerView: 1 },
+    350: { slidesPerView: 1 },
+    460: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+    1224: { slidesPerView: 4 },
+    1780: { slidesPerView: 4 },
+  }}
         >
+
+
           {blogs?.map((blog) => (
             <SwiperSlide key={blog.blog_id} className="p-2">
               <BlogCard blog={blog} />
