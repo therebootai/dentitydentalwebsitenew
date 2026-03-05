@@ -1,15 +1,18 @@
-import AboutSection from "@/components/home/AboutSection";
+
 import Banner from "@/components/home/Banner";
 import CertifiedSlider from "@/components/home/CertifiedSlider";
-import HomeBlogList from "@/components/home/HomeBlogList";
-import HomeEnquiry from "@/components/home/HomeEnquiry";
-import OurBranchesSection from "@/components/home/OurBranchesSection";
-import TreatmentSection from "@/components/home/TreatmentSection";
 import { fetchBlogs } from "@/lib/api/blogs";
 import { fetchSliders } from "@/lib/api/slider";
 import { fetchTreatments } from "@/lib/api/treatments";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
+import dynamic from "next/dynamic";
 import Head from "next/head";
+
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { ssr: true });
+const OurBranchesSection = dynamic(() => import("@/components/home/OurBranchesSection"), { ssr: true });
+const TreatmentSection = dynamic(() => import("@/components/home/TreatmentSection"), { ssr: true });
+const HomeBlogList = dynamic(() => import("@/components/home/HomeBlogList"), { ssr: true })
+const HomeEnquiry = dynamic(() => import("@/components/home/HomeEnquiry"), { ssr: true });
 
 export async function getStaticProps() {
   const domain = "dentitydental.in";
@@ -32,7 +35,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ blogs, sliders, pagination, currentPage, treatments }) {
+export default function Home({ blogs, sliders, treatments }) {
   
   return (
     <WebsiteTemplate
@@ -111,12 +114,11 @@ export default function Home({ blogs, sliders, pagination, currentPage, treatmen
 
       
 
-      {/* Existing homepage sections */}
       <Banner sliders={sliders} />
       <CertifiedSlider />
       <AboutSection />
       <OurBranchesSection />
-      <TreatmentSection />
+      <TreatmentSection treatments={treatments} />
       <HomeEnquiry />
       <HomeBlogList
         blogs={blogs}

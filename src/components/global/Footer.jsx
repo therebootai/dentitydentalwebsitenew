@@ -7,10 +7,9 @@ import { FaRegWindowClose } from "react-icons/fa";
 import EnquiryBox from "./EnquiryBox";
 import { useEffect, useState } from "react";
 
-export default function Footer() {
+export default function Footer({ treatments = [] }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
-  const [treatments, setTreatments] = useState([]);
 
   const openModal = (componentName) => {
     setSelectedComponent(componentName);
@@ -30,21 +29,7 @@ export default function Footer() {
     return chunks;
   }
 
-  useEffect(() => {
-    async function loadTreatments() {
-      try {
-        const domain = "dentitydental.in";
 
-        const res = await fetchTreatments({ domain });
-
-        setTreatments(res?.data || []);
-      } catch (error) {
-        console.error("Failed to load treatments", error);
-      }
-    }
-
-    loadTreatments();
-  }, []);
   const treatmentGroups = chunkArray(treatments);
   const facilitiesGroup = Facilities.slice(0, 10) || [];
   const clinicGroup = Clinic || [];
@@ -75,47 +60,32 @@ export default function Footer() {
               >
                 <div className="relative w-4 h-4 xlg:w-6 xlg:h-6">
                   <div className="relative w-4 h-4">
-                    <Image
-                      src={"/images/onlineconsultationicon.svg"}
-                      alt="online consultation"
-                      fill
-                      className=""
-                    />
+                    <img
+                  src="/images/onlineconsultationicon.svg"
+                  alt="onlineconsultationicon"
+                  aria-hidden="true"
+                  width={16}
+                  height={16}
+                />
                   </div>
                 </div>
                 <span className="text-xs md:text-base lg:text-[10px] xlg:text-sm xl:text-base">
                   Online Consult
                 </span>
-                {modalOpen && (
-                  <div className="fixed top-0 z-[1300] left-0 w-full h-full flex items-center justify-center overflow-y-scroll bg-black bg-opacity-50">
-                    <div className=" w-full sm:h-[50vh] lg:h-[100vh] justify-center items-center flex flex-col modal-container  rounded-lg">
-                      <div className="w-full flex p-4 justify-end items-center"></div>
-                      <div className=" w-[95%] md:w-[60%] lg:w-[45%] xl:w-[40%] xxl:w-[30%] z-[1300] relative">
-                        <button
-                          className="bg-primary text-site-main lg:w-16 right-2  absolute z-[1400] top-2 lg:h-10 sm:w-12 sm:h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary border-2 border-site-main transition-colors duration-300"
-                          onClick={closeModal}
-                        >
-                          <FaRegWindowClose className="lg:text-2xl sm:text-xl" />
-                        </button>
-                        {selectedComponent === "EnquiryBoxComponent" && (
-                          <EnquiryBox />
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
+              
               </button>
               <Link
                 href={"#"}
                 className="rounded-md px-2 md:px-4 lg:px-2 xlg:px-4 h-[2.5rem] bg-site-main text-white flex justify-center md:gap-2 xlg:gap-4 lg:gap-2 gap-1 items-center buttonshine"
               >
                 <div className="relative w-4 h-4 ">
-                  <Image
-                    src={"/images/payonlineicon.svg"}
-                    alt="pay now"
-                    fill
-                    className=""
-                  />
+                  <img
+                  src="/images/payonlineicon.svg"
+                  alt="payonlineicon"
+                  aria-hidden="true"
+                  width={16}
+                  height={16}
+                />
                 </div>
                 <span className="text-xs md:text-base lg:text-[10px] xlg:text-sm xl:text-base">
                   Pay Online
@@ -219,12 +189,12 @@ export default function Footer() {
 
         <div className="w-full h-[1px] bg-site-text" />
         <div className="flex flex-col lg:flex-row items-center gap-4 xlg:gap-0 justify-between">
-          <h1 className="text-site-text font-medium text-sm lg:text-xl text-left">
+          <p className="text-site-text font-medium text-sm lg:text-xl text-left">
             &copy; Copyright{" "}
             <span className="font-semibold">Dentity Dental - 2025</span> All
             Rights Reserved
-          </h1>
-          <h1 className="text-site-text font-medium text-sm lg:text-xl text-right">
+          </p>
+          <p className="text-site-text font-medium text-sm lg:text-xl text-right">
             Design &amp; Developed By:{" "}
             <Link
               href="https://rebootai.in/"
@@ -233,9 +203,28 @@ export default function Footer() {
             >
               Reboot AI Pvt. Ltd.
             </Link>
-          </h1>
+          </p>
         </div>
       </div>
+
+        {modalOpen && (
+                  <div className="fixed top-0 z-[1300] left-0 w-full h-full flex items-center justify-center overflow-y-scroll bg-black bg-opacity-50">
+                    <div className=" w-full sm:h-[50vh] lg:h-[100vh] justify-center items-center flex flex-col modal-container  rounded-lg">
+                      <div className="w-full flex p-4 justify-end items-center"></div>
+                      <div className=" w-[95%] md:w-[60%] lg:w-[45%] xl:w-[40%] xxl:w-[30%] z-[1300] relative">
+                        <button
+                          className="bg-primary text-site-main lg:w-16 right-2  absolute z-[1400] top-2 lg:h-10 sm:w-12 sm:h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary border-2 border-site-main transition-colors duration-300"
+                          onClick={closeModal}
+                        >
+                          <FaRegWindowClose className="lg:text-2xl sm:text-xl" />
+                        </button>
+                        {selectedComponent === "EnquiryBoxComponent" && (
+                          <EnquiryBox />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
     </footer>
   );
 }

@@ -1,36 +1,27 @@
-import EnquiryBox from "../global/EnquiryBox";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import useElementHeight from "@/hooks/useElementHeight";
+const EnquiryBox = dynamic(() => import("../global/EnquiryBox"), { ssr: false });
+
 
 export default function HomeEnquiry() {
-  const [contentHeight, rightContentRef] = useElementHeight();
-
   return (
-    <section className="flex flex-col relative md:flex-row gap-4 lg:gap-4 p-4 lg:p-8 xl:p-16">
-      <div
-        className="md:w-[50%] w-full flex items-start relative overflow-hidden"
-        style={{ height: `${contentHeight}px` }}
-      >
+    <section className="flex flex-col relative md:flex-row gap-4 items-stretch lg:gap-4 p-4 lg:p-8 xl:p-16">
+
+      <div className="flex-1 w-full relative min-h-[400px]">
         <Image
-          src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772000510/dd-toi-article_xg23me.avif"
-          alt="times of india article"
-          width={1320}
-          height={2072}
-          className="w-full h-full object-cover rounded-md blur-[2px]"
+          src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/newspaper-cut-out_ztx5uv.avif"
+          alt="Dentity Dental Times of India Newspaper Coverage"
+          fill
+          loading="lazy"
+          fetchPriority="low"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-top"
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Image
-            src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/newspaper-cut-out_ztx5uv.avif"
-            alt="times of india article 2"
-            width={720}
-            height={1130}
-            className="object-cover w-full"
-          />
-        </div>
       </div>
-      <div ref={rightContentRef} className="md:w-[50%] w-full">
+      <div className="flex-1 w-full">
         <EnquiryBox />
       </div>
+
     </section>
   );
 }

@@ -124,12 +124,13 @@ export default function NavBar({treatments }) {
               className="rounded-md px-2 lg:px-4 relative h-[2rem] lg:h-[2.5rem] bg-site-main buttonshinehover text-white  flex justify-center gap-2 lg:gap-3 items-center"
             >
               <div className="relative w-4 h-4">
-                <Image
-                  src={"/images/patientcornericon.svg"}
-                  alt="patient corner"
-                  fill
-                  className=""
-                />
+               <img
+  src="/images/patientcornericon.svg"
+  alt="patientcornericon"
+  aria-hidden="true"
+  width={16}
+  height={16}
+/>
               </div>
               <span>Patient Corner</span>
             </button>
@@ -174,11 +175,12 @@ export default function NavBar({treatments }) {
               className="rounded-md  px-2 lg:px-4 h-[2rem] lg:h-[2.5rem] bg-site-main text-white  flex justify-center gap-2 lg:gap-4 buttonshinehover items-center"
             >
               <div className="relative lg:w-4 lg:h-4 h-4 w-4">
-                <Image
-                  src={"/images/payonlineicon.svg"}
-                  alt="pay now"
-                  fill
-                  className=""
+                <img
+                  src="/images/payonlineicon.svg"
+                  alt="payonlineicon"
+                  aria-hidden="true"
+                  width={16}
+                  height={16}
                 />
               </div>
 
@@ -189,11 +191,12 @@ export default function NavBar({treatments }) {
               className="rounded-md px-2 lg:px-4 h-[2rem] lg:h-[2.5rem] bg-site-main text-white  flex justify-center buttonshinehover gap-2 lg:gap-4 items-center"
             >
               <div className="relative w-4 h-4">
-                <Image
-                  src={"/images/onlineconsultationicon.svg"}
-                  alt="online consultation"
-                  fill
-                  className=""
+                <img
+                  src="/images/onlineconsultationicon.svg"
+                  alt="onlineconsultationicon"
+                  aria-hidden="true"
+                  width={16}
+                  height={16}
                 />
               </div>
               <span>Online Consult</span>
@@ -223,7 +226,11 @@ export default function NavBar({treatments }) {
                 <div className="">
                   <button
                     onClick={() => toggleDropdown(index)}
-                    onMouseEnter={() => toggleDropdown(index)}
+                    onMouseEnter={() => {
+    setDropdownStates(prev => ({ ...prev, [index]: true }));
+  }}
+                     aria-expanded={!!dropdownStates[index]}
+  aria-haspopup="true"
                     className="flex flex-row gap-2 items-center"
                   >
                     <div>{navbar.name} </div>
