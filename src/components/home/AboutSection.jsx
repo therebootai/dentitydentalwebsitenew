@@ -55,7 +55,7 @@ const AboutSection = () => {
           <div className="flex flex-col gap-2 flex-1">
             <div className="relative w-full" style={{ aspectRatio: "1/1" }}>
               <Image
-                src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_auto,w_600/v1772693201/image_1_xsgdhe.avif"
+                src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_665/v1772714262/govaward_kwm7uj.avif"
                 alt="Dentity Dental Award - Governor of West Bengal"
                 fill
                 loading="eager"

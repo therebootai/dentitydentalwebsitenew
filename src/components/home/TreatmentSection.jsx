@@ -5,12 +5,13 @@ import BranchServiceCard from "../global/BranchServiceCard";
 function getOptimizedUrl(url) {
   if (!url) return url;
   if (url.includes("res.cloudinary.com") && url.includes("/image/upload/")) {
-    if (url.includes("f_auto") || url.includes("q_auto")) return url;
-    return url.replace("/image/upload/", "/image/upload/f_auto,q_auto,w_400/");
+    if (url.includes("f_auto") || url.includes("q_auto")) {
+      return url.replace("q_auto", "q_55");
+    }
+    return url.replace("/image/upload/", "/image/upload/f_auto,q_55,w_400/");
   }
   return url;
 }
-
 const TreatmentSection = ({ treatments }) => {
   return (
     <section className="xl:p-16 lg:p-8 p-4 flex flex-col gap-4">
