@@ -76,14 +76,6 @@ export default function Home({ blogs, sliders, treatments }) {
               name: "Dentity Dental",
               url: "https://dentitydental.in/",
               logo: "https://dentitydental.in/images/logo.svg",
-              image: [
-                "https://dentitydental.in/images/dd-slider.jpg",
-                "https://dentitydental.in/images/toi-about.avif",
-                "https://dentitydental.in/images/gov-about.avif",
-                "https://dentitydental.in/images/gov2-about.avif",
-                "https://dentitydental.in/images/dd-toi-article.avif",
-                "https://dentitydental.in/images/newspaper-cut-out.avif",
-              ],
               description:
                 "Dentity Dental is the best dental clinic in Kolkata offering implants, root canal, braces and cosmetic dentistry.",
               telephone: "+919051553253",

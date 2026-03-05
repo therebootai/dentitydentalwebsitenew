@@ -19,6 +19,7 @@ export default function BlogCard({ blog }) {
           height={360}
           loading="lazy"
           fetchPriority="low"
+          unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover h-[15rem] rounded-md w-full"
         />

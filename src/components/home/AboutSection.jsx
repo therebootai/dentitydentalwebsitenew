@@ -36,12 +36,13 @@ const AboutSection = () => {
           <div className="flex flex-col gap-3 flex-1">
             <div className="relative w-full" style={{ aspectRatio: "720/582" }}>
               <Image
-                src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"
+                src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_auto,w_800/v1772004148/toi-about_uit1xx.avif"
                 alt="Times of India Health Survey Ranking - Dentity Dental Best Clinic Kolkata"
                 fill
                 priority
                 fetchPriority="high"
                 decoding="sync"
+                unoptimized
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 className="rounded-sm object-cover"
               />
@@ -59,6 +60,7 @@ const AboutSection = () => {
                 fill
                 loading="eager"
                 fetchPriority="low"
+                unoptimized
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 className="rounded-sm object-cover"
               />
