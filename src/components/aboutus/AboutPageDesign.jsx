@@ -1,46 +1,47 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import WhyChooseUsSection from "../global/WhyChooseUsSection";
-import useElementHeight from "@/hooks/useElementHeight";
-
 const AboutPageDesign = () => {
-  const [contentHeight, rightContentRef] = useElementHeight();
 
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <section className="xl:p-16 lg:p-8 p-4 flex flex-col md:flex-row gap-4 xlg:gap-8">
+       <section className="flex flex-col gap-6 w-full md:w-[50%]">
+    
+              <div className="flex flex-col gap-3 flex-1">
+                <div className="relative w-full" style={{ aspectRatio: "720/582" }}>
+                  <Image
+                    src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_auto,w_800/v1772004148/toi-about_uit1xx.avif"
+                    alt="Times of India Health Survey Ranking - Dentity Dental Best Clinic Kolkata"
+                    fill
+                    priority
+                    fetchPriority="high"
+                    decoding="sync"
+                    unoptimized
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                    className="rounded-sm object-cover"
+                  />
+                </div>
+                <h2 className="lg:text-xl text-base font-semibold text-site-text">
+                  Times of India Health Survey Ranking 2023
+                </h2>
+              </div>
+    
+              <div className="flex flex-col gap-2 flex-1">
+                <div className="relative w-full h-full min-h-[300px] max-md:h-[250px]">
+                  <Image
+                    src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_auto,w_600/v1772014005/dentitydentalwebsite/images/eoyvnqbohzo5uvc67p99.jpg"
+                    alt="Dentity Dental Award - Governor of West Bengal"
+                    fill
+                    loading="eager"
+                    fetchPriority="low"
+                    unoptimized
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                    className="rounded-sm object-cover"
+                  />
+                </div>
+              </div>
+            </section>
       <section
-        style={{ height: isSmallScreen ? "auto" : `${contentHeight}px` }}
-        className="flex flex-col gap-6 w-full md:w-[50%]"
-      >
-        <Image
-          src={"/images/toi-about.jpg"}
-          alt="about us"
-          height={648}
-          width={801}
-          className=" w-full rounded-sm h-[49%] object-cover"
-        />
-        <Image
-          src={"/images/gov-about.jpg"}
-          alt="about us"
-          height={450}
-          width={789}
-          className=" w-full rounded-sm h-[49%] object-cover"
-        />
-      </section>
-      <section
-        ref={rightContentRef}
         className="md:w-[50%] w-full flex flex-col gap-3 lg:gap-5 xlg:gap-8"
       >
         <div className="flex flex-col gap-2 xlg:gap-5">

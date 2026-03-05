@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 const experience = [
   { icon: "/acknowledgement/iso-globe.svg", name: "ISO 9001:2015 Certified" },
@@ -10,47 +8,34 @@ const experience = [
   { icon: "/acknowledgement/denatal-clinic.svg", name: "Most Affordable Dental Clinic Chain in Kolkata & WB" },
 ];
 
-export default function CertifiedSlider() {
+export default function CertifiedSection() {
   return (
-    <div className="w-full xl:p-16 lg:p-8 p-4">
-      <Swiper
-        spaceBetween={10}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        loop={true}
-        modules={[Autoplay]}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          350: { slidesPerView: 2 },
-          460: { slidesPerView: 2 },
-          860: { slidesPerView: 3 },
-          1224: { slidesPerView: 3 },
-          1380: { slidesPerView: 4 },
-        }}
-        className="rounded-l-full rounded-r-full overflow-hidden"
-      >
+    <section className="xl:px-16 lg:px-8 px-4 py-10 bg-gray-50">
+      
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
         {experience.map((item, index) => (
-          <SwiperSlide
+          <div
             key={index}
-            className="w-full !flex justify-center items-center"
+            className="flex flex-col items-center justify-center text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300"
           >
-            <div className="w-full flex flex-col gap-2 justify-center items-center bg-site-gray h-[6rem] md:h-[8rem] lg:h-40">
-           
-              <img
+            <div className="relative w-12 h-12 md:w-16 md:h-16 mb-3">
+              <Image
                 src={item.icon}
                 alt={item.name}
-                width={64}
-                height={64}
+                fill
                 loading="lazy"
-                decoding="async"
-                className="h-8 md:h-12 lg:h-16 w-auto object-contain"
+                className="object-contain"
               />
-              <h2 className="xlg:text-lg lg:text-base md:text-sm text-xs font-medium line-clamp-2 text-[#222222] text-center">
-                {item.name}
-              </h2>
             </div>
-          </SwiperSlide>
+
+            <p className="text-xs md:text-sm font-medium text-gray-700 leading-snug">
+              {item.name}
+            </p>
+          </div>
         ))}
-      </Swiper>
-    </div>
+
+      </div>
+    </section>
   );
 }

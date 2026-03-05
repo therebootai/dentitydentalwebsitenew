@@ -7,7 +7,6 @@ const BranchServiceCard = ({ content }) => {
   const { imgsrc, label, icon, desc, href } = content;
 
   return (
-    // ✅ Use Link instead of div+onClick — Google can crawl this
     <Link
       href={href}
       className="w-full flex flex-col border border-site-gray group hover:shadow-custom transition-shadow duration-200 self-stretch"

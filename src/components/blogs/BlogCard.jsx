@@ -2,6 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import DOMPurify from "dompurify";
 import { MdArrowOutward, MdOutlineRemoveRedEye } from "react-icons/md";
+function getOptimizedUrl(url) {
+  if (!url) return url;
+  if (url.includes("res.cloudinary.com") && url.includes("/image/upload/")) {
+    if (url.includes("f_auto") || url.includes("q_auto")) return url;
+    return url.replace("/image/upload/", "/image/upload/f_auto,q_auto,w_400/");
+  }
+  return url;
+}
+
 
 
 export default function BlogCard({ blog }) {
@@ -13,7 +22,7 @@ export default function BlogCard({ blog }) {
     >
       <div>
         <Image
-          src={blog.blogImg?.secure_url || ""}
+          src={getOptimizedUrl(blog.blogImg?.secure_url) || ""}
           alt={blog.blogTitle || "blog cover"}
           width={640} 
           height={360}

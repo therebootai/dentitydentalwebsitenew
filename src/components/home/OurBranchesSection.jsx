@@ -6,6 +6,7 @@ import { Autoplay } from "swiper/modules";
 
 
 
+
 const OurBranchesSection = () => {
   const clinics = Clinic.map((item) => ({
     imgsrc: item.cover,
