@@ -12,17 +12,18 @@ const BranchServiceCard = ({ content }) => {
       href={href}
       className="w-full flex flex-col border border-site-gray group hover:shadow-custom transition-shadow duration-200 self-stretch"
     >
-      <div className="relative w-full flex justify-center items-center">
-        <Image
-          src={imgsrc}
-          alt={label}
-          width={720}
-          height={530}
-          loading="lazy"
-          className="w-full md:h-[13rem] h-[8rem] sm:h-[10rem] lg:h-[17rem] xlg:h-[19rem] object-cover"
-        />
+      <div className="  flex justify-center items-center relative w-full md:h-[13rem] h-[8rem] sm:h-[10rem] lg:h-[17rem] xlg:h-[19rem]">
+          <Image
+            src={imgsrc}
+            alt={label}
+            fill
+            loading="lazy"
+            fetchPriority="low"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+          />
 
-        <div className="md:h-[4rem] md:w-[4rem] h-[3rem] w-[3rem] bg-site-main rounded-full flex justify-center items-center absolute -bottom-8 transition-colors duration-300 group-hover:bg-site-sub">
+        <div className="md:h-[4rem] md:w-[4rem] h-[3rem] w-[3rem] bg-site-main rounded-full flex justify-center items-center absolute -bottom-8 transition-colors duration-300 group-hover:bg-site-sub z-[30]">
           <img
             src={icon}
             alt=""
@@ -40,14 +41,13 @@ const BranchServiceCard = ({ content }) => {
           {label}
         </div>
 
-      <div
-  className="xlg:text-base/[24px] lg:text-sm text-xs/[16px] text-center text-site-typo bg-transparent line-clamp-2"
-  dangerouslySetInnerHTML={{
-    __html: typeof window !== "undefined"
-      ? DOMPurify.sanitize(desc)
-      : desc  
-  }}
-/>
+        <div
+          className="xlg:text-base/[24px] lg:text-sm text-xs/[16px] text-center text-site-typo bg-transparent line-clamp-2"
+          dangerouslySetInnerHTML={{
+            __html:
+              typeof window !== "undefined" ? DOMPurify.sanitize(desc) : desc,
+          }}
+        />
       </div>
     </Link>
   );
