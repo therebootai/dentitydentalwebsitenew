@@ -36,7 +36,7 @@ const AboutSection = () => {
           <div className="flex flex-col gap-3 flex-1">
             <div className="relative w-full" style={{ aspectRatio: "720/582" }}>
               <Image
-                src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_auto,w_800/v1772004148/toi-about_uit1xx.avif"
+                src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_665/v1772711753/toi-about_uit1xx_mul0vd.avif"
                 alt="Times of India Health Survey Ranking - Dentity Dental Best Clinic Kolkata"
                 fill
                 priority

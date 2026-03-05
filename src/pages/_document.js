@@ -8,12 +8,11 @@ export default function Document() {
          <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-
        <link
   rel="preload"
   as="image"
-  href="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_665/v1772004148/toi-about_uit1xx.avif"
-  imageSrcSet="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_400/v1772004148/toi-about_uit1xx.avif 400w, https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_665/v1772004148/toi-about_uit1xx.avif 665w"
+  href="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_665/v1772711753/toi-about_uit1xx_mul0vd.avif"
+  imageSrcSet="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_400/v1772711753/toi-about_uit1xx_mul0vd.avif 400w, https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_665/v1772711753/toi-about_uit1xx_mul0vd.avif 665w"
   imageSizes="(max-width: 768px) 100vw, 50vw"
   fetchPriority="high"
 />
