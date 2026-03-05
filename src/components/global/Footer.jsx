@@ -136,9 +136,9 @@ export default function Footer({ treatments = [] }) {
             </div>
           </div>
           <div className="flex flex-col gap-3 xlg:text-base lg:text-xs text-base xlg:gap-3">
-            <h1 className="text-lg xlg:text-2xl font-semibold text-custom-gold truncate text-site-main">
+            <h2 className="text-lg xlg:text-2xl font-semibold text-custom-gold truncate text-site-main">
               Quick Link
-            </h1>
+            </h2>
             <ul className="flex flex-col  text-sm lg:text-xs xlg:text-base  lg:gap-4 gap-6 font-medium text-white">
               {[
                 { label: "Home", href: "/" },
@@ -239,9 +239,9 @@ function FooterList({
 
   return (
     <div className="flex flex-col gap-3 xlg:text-base lg:text-xs text-base xlg:gap-3">
-      <h1 className="text-lg xlg:text-2xl font-semibold text-custom-gold truncate text-site-main">
+      <h2 className="text-lg xlg:text-2xl font-semibold text-custom-gold truncate text-site-main">
         {title}
-      </h1>
+      </h2>
       <ul className="flex flex-col  text-sm lg:text-xs xlg:text-base lg:gap-4 gap-6 font-medium text-white">
         {safeTreatments.map((item, index) => (
           <li key={index}>

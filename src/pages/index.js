@@ -1,4 +1,3 @@
-
 import Banner from "@/components/home/Banner";
 import CertifiedSlider from "@/components/home/CertifiedSlider";
 import { fetchBlogs } from "@/lib/api/blogs";
@@ -8,26 +7,29 @@ import WebsiteTemplate from "@/templates/WebsiteTemplate";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-const AboutSection = dynamic(
-  () => import("@/components/home/AboutSection"),
-  {
-    ssr: true,
-    loading: () => <div className="h-[400px] bg-gray-50 animate-pulse" />
-  }
-);
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"), {
+  ssr: true,
+  loading: () => <div className="h-[400px] bg-gray-50 animate-pulse" />,
+});
 
 const TreatmentSection = dynamic(
   () => import("@/components/home/TreatmentSection"),
   {
     ssr: true,
-    loading: () => <div className="h-[300px] bg-gray-50 animate-pulse" />
-  }
+    loading: () => <div className="h-[300px] bg-gray-50 animate-pulse" />,
+  },
 );
 
-
-const OurBranchesSection = dynamic(() => import("@/components/home/OurBranchesSection"), { ssr: false });
-const HomeBlogList = dynamic(() => import("@/components/home/HomeBlogList"), { ssr: false })
-const HomeEnquiry = dynamic(() => import("@/components/home/HomeEnquiry"), { ssr: true });
+const OurBranchesSection = dynamic(
+  () => import("@/components/home/OurBranchesSection"),
+  { ssr: false },
+);
+const HomeBlogList = dynamic(() => import("@/components/home/HomeBlogList"), {
+  ssr: false,
+});
+const HomeEnquiry = dynamic(() => import("@/components/home/HomeEnquiry"), {
+  ssr: true,
+});
 
 export async function getStaticProps() {
   const domain = "dentitydental.in";
@@ -46,38 +48,47 @@ export async function getStaticProps() {
       pagination: blogs?.paginations || null,
       currentPage: 1,
     },
-    revalidate: 60, 
+    revalidate: 60,
   };
 }
 
 export default function Home({ blogs, sliders, treatments }) {
+  const firstSlider = sliders?.find((s) => s.status);
+  const rawSliderUrl = firstSlider?.slider_image?.secure_url || null;
 
-    const firstSlider = sliders?.find(s => s.status);
-  const sliderImgUrl = firstSlider?.slider_image?.secure_url
-    ? firstSlider.slider_image.secure_url.replace(
-        "/image/upload/",
-        "/image/upload/f_auto,q_auto,w_750/"
-      )
-    : null;
-  
   return (
     <WebsiteTemplate
       title="Best Dental Clinic in Kolkata - Dentity Dental"
       description="Discover the best dental clinic in Kolkata at Dentity Dental. We provide advanced oral, dental, and facial treatments with state-of-the-art technology and expert dentists."
-       treatments={treatments}
+      treatments={treatments}
     >
       <Head>
         <link rel="canonical" href="https://dentitydental.in/" />
 
-           {sliderImgUrl && (
-          <link
-            rel="preload"
-            as="image"
-            href={sliderImgUrl}
-            fetchPriority="high"
-          />
+        {rawSliderUrl && (
+          <>
+            <link
+              rel="preload"
+              as="image"
+              href={rawSliderUrl.replace(
+                "/image/upload/",
+                "/image/upload/f_auto,q_auto,w_750/",
+              )}
+              media="(max-width: 767px)"
+              fetchPriority="high"
+            />
+            <link
+              rel="preload"
+              as="image"
+              href={rawSliderUrl.replace(
+                "/image/upload/",
+                "/image/upload/f_auto,q_auto,w_1440/",
+              )}
+              media="(min-width: 768px)"
+              fetchPriority="high"
+            />
+          </>
         )}
-
         <meta
           property="og:title"
           content="Best Dental Clinic in Kolkata — Dentity Dental"
@@ -136,17 +147,13 @@ export default function Home({ blogs, sliders, treatments }) {
         />
       </Head>
 
-      
-
       <Banner sliders={sliders} />
       <CertifiedSlider />
       <AboutSection />
       <OurBranchesSection />
       <TreatmentSection treatments={treatments} />
       <HomeEnquiry />
-      <HomeBlogList
-        blogs={blogs}
-      />
+      <HomeBlogList blogs={blogs} />
     </WebsiteTemplate>
   );
 }

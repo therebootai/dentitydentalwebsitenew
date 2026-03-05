@@ -47,9 +47,9 @@ const CallWithUs = () => {
               <FaPhoneVolume className="text-lg" />
             </div>
           </span>
-          <h1 className="md:text-lg  text-base font-medium text-white">
+          <span className="md:text-lg  text-base font-medium text-white">
             Call Us
-          </h1>
+          </span>
         </Link>
       </div>
     </div>

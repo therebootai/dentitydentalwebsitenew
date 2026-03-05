@@ -24,23 +24,17 @@ const OnlyMobile = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const scrollThreshold = window.innerWidth <= 768 ? 100 : 300;
+      if (window.scrollY > scrollThreshold) {
+        setIsVisible(true);
+        setIsAnimated(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleScroll = () => {
-    const scrollThreshold = window.innerWidth <= 768 ? 100 : 300;
-    if (window.scrollY > scrollThreshold) {
-      setIsVisible(true);
-      setIsAnimated(true);
-    } else {
-      setIsVisible(false);
-      setIsAnimated(false);
-    }
-  };
-
   return (
     <div
       className={`fixed w-full p-2 z-[80] bottom-0 ${

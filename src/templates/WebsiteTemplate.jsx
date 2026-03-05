@@ -1,8 +1,9 @@
 import Footer from "@/components/global/Footer";
 import NavBar from "@/components/global/Navbar";
+import dynamic from "next/dynamic";
 import Head from "next/head";
-import CallWithUs from "./CallWithUs";
-import OnlyMobile from "./OnlyMobile";
+const CallWithUs = dynamic(() => import("./CallWithUs"), { ssr: false });
+const OnlyMobile = dynamic(() => import("./OnlyMobile"), { ssr: false });
 
 export default function WebsiteTemplate({ children, title, description, treatments }) {
   return (
