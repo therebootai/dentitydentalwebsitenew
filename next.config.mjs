@@ -7,9 +7,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    browsersListForSwc: true,
-  },
   compress: true,
 
   images: {

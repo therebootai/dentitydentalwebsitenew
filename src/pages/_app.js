@@ -3,8 +3,9 @@ import { League_Spartan } from "next/font/google";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
-
 
 
 export default function App({ Component, pageProps }) {
