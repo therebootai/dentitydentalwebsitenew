@@ -36,6 +36,14 @@ export async function getStaticProps() {
 }
 
 export default function Home({ blogs, sliders, treatments }) {
+
+    const firstSlider = sliders?.find(s => s.status);
+  const sliderImgUrl = firstSlider?.slider_image?.secure_url
+    ? firstSlider.slider_image.secure_url.replace(
+        "/image/upload/",
+        "/image/upload/f_auto,q_auto,w_750/"
+      )
+    : null;
   
   return (
     <WebsiteTemplate
@@ -45,6 +53,15 @@ export default function Home({ blogs, sliders, treatments }) {
     >
       <Head>
         <link rel="canonical" href="https://dentitydental.in/" />
+
+           {sliderImgUrl && (
+          <link
+            rel="preload"
+            as="image"
+            href={sliderImgUrl}
+            fetchPriority="high"
+          />
+        )}
 
         <meta
           property="og:title"

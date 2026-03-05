@@ -1,30 +1,45 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Banner({ sliders }) {
   const firstSlide = sliders?.find((slide) => slide.status);
   if (!firstSlide) return null;
 
-  const optimizedUrl = firstSlide.slider_image.secure_url.includes("res.cloudinary.com")
-    ? firstSlide.slider_image.secure_url.replace(
-        "/image/upload/",
-        "/image/upload/f_auto,q_auto,w_1440/"
-      )
-    : firstSlide.slider_image.secure_url;
+  const rawUrl = firstSlide.slider_image.secure_url;
+
+  // ✅ Mobile এ w_750, desktop এ w_1440
+  const getUrl = (url, width) => {
+    if (!url?.includes("res.cloudinary.com")) return url;
+    const base = url.includes("/image/upload/")
+      ? url.replace("/image/upload/", `/image/upload/f_auto,q_auto,w_${width}/`)
+      : url;
+    return base;
+  };
 
   return (
     <section aria-label="Hero Banner">
       <div className="w-full h-auto py-4 md:py-0">
-        <Image
-          src={optimizedUrl}
+        {/* Mobile */}
+        <img
+          src={getUrl(rawUrl, 750)}
           alt={firstSlide.slider_name || "Dentity Dental - Best Dental Clinic Kolkata"}
-          width={1440}
-          height={500}
-          priority
           fetchPriority="high"
           loading="eager"
-          unoptimized
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1440px"
-          className="w-full h-auto object-cover"
+          decoding="sync"
+          width={750}
+          height={267}
+          className="w-full h-auto object-cover md:hidden"
+        />
+        {/* Desktop */}
+        <img
+          src={getUrl(rawUrl, 1440)}
+          alt={firstSlide.slider_name || "Dentity Dental - Best Dental Clinic Kolkata"}
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
+          width={1440}
+          height={500}
+          className="w-full h-auto object-cover hidden md:block"
         />
       </div>
     </section>
