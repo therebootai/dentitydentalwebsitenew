@@ -9,7 +9,7 @@ export default function HomeEnquiry() {
 
       <div className="flex-1 w-full relative min-h-[400px]">
         <Image
-          src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_auto,w_600/v1772004148/newspaper-cut-out_ztx5uv.avif"
+          src="https://res.cloudinary.com/dfhfdirbu/image/upload/f_auto,q_55,w_400/v1772715844/newspaper-cut_zgioyk.avif"
           alt="Dentity Dental Times of India Newspaper Coverage"
           fill
           loading="lazy"
