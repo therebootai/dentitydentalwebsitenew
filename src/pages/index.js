@@ -9,9 +9,9 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 
 const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { ssr: true });
-const OurBranchesSection = dynamic(() => import("@/components/home/OurBranchesSection"), { ssr: true });
+const OurBranchesSection = dynamic(() => import("@/components/home/OurBranchesSection"), { ssr: false });
 const TreatmentSection = dynamic(() => import("@/components/home/TreatmentSection"), { ssr: true });
-const HomeBlogList = dynamic(() => import("@/components/home/HomeBlogList"), { ssr: true })
+const HomeBlogList = dynamic(() => import("@/components/home/HomeBlogList"), { ssr: false })
 const HomeEnquiry = dynamic(() => import("@/components/home/HomeEnquiry"), { ssr: true });
 
 export async function getStaticProps() {

@@ -19,7 +19,6 @@ export default function Banner({ sliders }) {
           unoptimized
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1440px"
           className="w-full h-auto object-cover"
-          quality={90}
         />
       </div>
     </section>

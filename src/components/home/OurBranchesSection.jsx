@@ -4,6 +4,8 @@ import { Clinic } from "@/lib/clinicsDataList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
+
+
 const OurBranchesSection = () => {
   const clinics = Clinic.map((item) => ({
     imgsrc: item.cover,
@@ -45,8 +47,6 @@ const OurBranchesSection = () => {
           ))}
         </Swiper>
       </section>
-
-      {/* ✅ Hidden static links so Google can crawl all branch pages */}
       <div className="sr-only" aria-hidden="true">
         {clinics.map((item, index) => (
           <a key={index} href={item.href}>{item.label}</a>
