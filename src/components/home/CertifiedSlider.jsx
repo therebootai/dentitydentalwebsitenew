@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 const experience = [
   { icon: "/acknowledgement/iso-globe.svg", name: "ISO 9001:2015 Certified" },
@@ -20,13 +19,15 @@ export default function CertifiedSection() {
             className="flex flex-col items-center justify-center text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300"
           >
             <div className="relative w-12 h-12 md:w-16 md:h-16 mb-3">
-              <Image
-                src={item.icon}
-                alt={item.name}
-                fill
-                loading="lazy"
-                className="object-contain"
-              />
+             <img
+  src={item.icon}
+  alt={item.name}
+  width={64}
+  height={64}
+  loading={index < 3 ? "eager" : "lazy"}
+  decoding="async"
+  className="object-contain w-12 h-12 md:w-16 md:h-16"
+/>
             </div>
 
             <p className="text-xs md:text-sm font-medium text-gray-700 leading-snug">
