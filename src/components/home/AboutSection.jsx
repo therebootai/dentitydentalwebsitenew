@@ -22,12 +22,12 @@ const AboutSection = () => {
       <section className="flex flex-col gap-6 w-full md:w-[50%]">
           {/* Top Image Container */}
           <div className="flex flex-col gap-3 flex-1">
-            <div className="relative w-full aspect-[720/582] md:h-full overflow-hidden">
+            <div className="relative w-full aspect-[720/582] xxl:aspect-[500/400] md:h-full overflow-hidden">
               <Image
                 src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004148/toi-about_uit1xx.avif"
                 alt="Times of India Health Survey Ranking"
                 fill
-                loading="lazy" 
+                priority
                 sizes="(max-width: 768px) 100vw, 50vw" 
                 className="rounded-sm object-cover"
               />
@@ -39,24 +39,13 @@ const AboutSection = () => {
 
          
           <div className="flex flex-col gap-2 flex-1">
-             <div className="relative w-full h-1/2 min-h-[150px]">
+             <div className="relative aspect-square lg:aspect-auto w-full h-full ">
                 <Image
-                  src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004147/gov-about_zcvwzy.avif"
+                  src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772693201/image_1_xsgdhe.avif"
                   alt="Award image 1"
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
-                  className="rounded-sm object-cover"
-                />
-             </div>
-             <div className="relative w-full h-1/2 min-h-[150px]">
-                <Image
-                  src="https://res.cloudinary.com/dfhfdirbu/image/upload/v1772004152/gov2-about_f2swu1.avif"
-                  alt="Award image 2"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  loading="lazy"
-                  className="rounded-sm object-cover"
+                  className="rounded-sm  object-cover w-full"
                 />
              </div>
           </div>
@@ -66,21 +55,19 @@ const AboutSection = () => {
         >
           {aboutcontent.map((item, index) => (
             <div className="flex flex-col gap-2 xlg:gap-5" key={index}>
-              <h1 className="text-site-main text-xl lg:text-2xl xlg:text-3xl font-semibold">
+              <h1 className="text-site-main text-xl lg:text-2xl xlg:text-3xl xxl:text-4xl font-semibold">
                 {item.heading}
               </h1>
               <section
-                className="text-site-typo text-sm lg:text-sm/[21px] xlg:text-base/[26px]"
+                className="text-site-typo text-sm lg:text-sm/[21px] xlg:text-base/[26px] xxl:text-xl/[28px]"
                 dangerouslySetInnerHTML={{ __html: item.text }}
                 suppressHydrationWarning
               ></section>
             </div>
           ))}
-        </section>
-      </section>
-      <section className="flex flex-col md:flex-row gap-4 xlg:gap-8">
-        <section className="lg:w-[50%] w-full">
-          <p className="lg:text-base xlg:text-[17px]/[25px] md:text-sm text-site-typo text-xs/[17px]">
+             <section className="flex flex-col gap-4 xlg:gap-8">
+        <section className=" w-full">
+          <p className="lg:text-base xlg:text-[17px]/[25px] md:text-sm xxl:text-2xl/[30px] text-site-typo text-xs/[17px]">
             Dr. Saikat Paul &#40;Consultant Oral, Dental Surgeon & Maxillofacial
             Prosthodontist Founder cum Owner of Dentity Dental &#40;ISO
             certified, Best multispeciality dental chain clinic in Kolkata &
@@ -90,10 +77,13 @@ const AboutSection = () => {
             Sector.
           </p>
         </section>
-        <section className="lg:w-[50%] w-full">
+        <section className=" w-full">
           <WhyChooseUsSection />
         </section>
       </section>
+        </section>
+      </section>
+   
     </div>
   );
 };

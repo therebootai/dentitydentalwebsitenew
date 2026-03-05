@@ -1,15 +1,22 @@
 /** @type {import('next').NextConfig} */
+
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const nextConfig = {
   reactStrictMode: true,
-   images: {
-      remotePatterns: [
-        {
-          protocol: "https",
-          hostname: "res.cloudinary.com",
-          pathname: "**",
-        },
-      ],
-    },  
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

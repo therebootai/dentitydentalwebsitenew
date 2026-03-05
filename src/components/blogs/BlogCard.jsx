@@ -16,7 +16,7 @@ export default function BlogCard({ blog }) {
         <div className="">
           <Image
             src={blog.blogImg?.secure_url || ""}
-            alt={blog.heading}
+            alt={blog.blogTitle || "blog cover"}
             width={1280}
             height={720}
             className="object-cover h-[15rem] rounded-md"
@@ -25,7 +25,7 @@ export default function BlogCard({ blog }) {
       </div>
       <div className="flex justify-between gap-4 h-[2.5rem]">
         <div className="flex items-center gap-1 text-[11px]">
-          <span className="relative px-6 py-0.5 bg-site-sub text-white xl:text-sm text-xs rounded-full font-medium">
+          <span className="relative px-6 py-0.5 bg-site-main text-white xl:text-sm text-xs rounded-full font-medium">
             {new Date(blog.createdAt).toLocaleDateString("en-US", {
               day: "numeric",
               month: "long",
@@ -34,7 +34,7 @@ export default function BlogCard({ blog }) {
           </span>
         </div>
         <div className="flex items-center gap-1 text-[11px]">
-          <span className="p-1 inline-flex items-center justify-center rounded-full bg-site-sub text-white">
+          <span className="p-1 inline-flex items-center justify-center rounded-full bg-site-main text-white">
             <MdOutlineRemoveRedEye />
           </span>
           <span className="text-site-typo font-medium">

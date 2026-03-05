@@ -120,8 +120,6 @@ export default function Home({ blogs, sliders, pagination, currentPage, treatmen
       <HomeEnquiry />
       <HomeBlogList
         blogs={blogs}
-        pagination={pagination}
-        currentPage={currentPage}
       />
     </WebsiteTemplate>
   );

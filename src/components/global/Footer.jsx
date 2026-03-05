@@ -126,6 +126,7 @@ export default function Footer() {
               <Link
                 href="https://www.youtube.com/channel/UC-iPLeqAzrCXv3_gowjrqWw"
                 target="_blank"
+                aria-label="Youtube"
                 className="text-[1.5rem] xlg:text-[2.5rem] object-cover"
               >
                 <svg
@@ -147,6 +148,7 @@ export default function Footer() {
               <Link
                 href="https://api.whatsapp.com/send?phone=919051553253"
                 className="text-[1.5rem] xlg:text-[2.5rem] object-cover"
+                aria-label="Whatsapp"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

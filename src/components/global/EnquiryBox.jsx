@@ -70,6 +70,7 @@ export default function EnquiryBox() {
           <select
             name="service"
             value={formData.service}
+            aria-label="service"
             onChange={handleChange}
             className="w-full px-4 rounded-md h-[3.5rem] bg-white/50 backdrop-blur-[2px] outline-none placeholder:text-site-typo text-site-typo text-sm"
           >

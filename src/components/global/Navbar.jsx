@@ -109,7 +109,7 @@ export default function NavBar({treatments }) {
     <>
       <div className="fixed top-0 bg-white z-[60] w-full ">
         <div className="hidden lg:flex justify-between  items-center sm:gap-2 z-[50] lg:gap-0 flex-row p-3 lg:px-8">
-          <Link href={"/"} className="">
+          <Link href={"/"} aria-label="Home" className="">
             <Image
               src="/images/logo.svg"
               alt=""
@@ -260,7 +260,7 @@ export default function NavBar({treatments }) {
         </div>
         <div>
           <div className="flex justify-between items-center w-full md:p-3 p-2 px-9 lg:hidden">
-            <Link href={"/"} className="lg:hidden">
+            <Link href={"/"} className="lg:hidden" aria-label="Home">
               <Image
                 src="/images/logo.svg"
                 alt=""
@@ -269,7 +269,7 @@ export default function NavBar({treatments }) {
                 className="h-[2.5rem] md:h-[3rem] w-fit"
               />
             </Link>
-            <button onClick={togglemenuopen} className="">
+            <button onClick={togglemenuopen} aria-label="Menu btn" className="">
               {menuopen ? (
                 <RiCloseLine className="sm:text-[2rem] md:text-3xl text-site-main font-semibold" />
               ) : (

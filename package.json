@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^16.1.6",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.8.0",
     "jsonwebtoken": "^9.0.3",

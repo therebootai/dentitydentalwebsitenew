@@ -14,9 +14,9 @@ export default function WebsiteTemplate({ children, title, description,treatment
         <link rel="shortcut icon" href="/images/favicon.svg" type="image/svg" />
       </Head>
       <NavBar treatments={treatments}/>
-      <div className="lg:mt-[6.5rem] md:mt-[4.5rem] mt-[3.5rem]">
+      <main className="lg:mt-[6.5rem] md:mt-[4.5rem] mt-[3.5rem]">
         {children}
-      </div>
+      </main>
       <CallWithUs />
       <OnlyMobile />
       <Footer />
