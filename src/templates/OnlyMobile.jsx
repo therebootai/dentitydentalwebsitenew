@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { TbBrandWhatsappFilled } from "react-icons/tb";
 
@@ -12,18 +13,22 @@ const OnlyMobile = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const modalRef = useRef(null);
 
   const openModal = () => {
     setModalOpen(true);
   };
 
   const closeModal = () => {
-    const modalElement = document.querySelector(".modal-container");
-    modalElement.classList.add("zoom-out");
+    if (modalRef.current) {
+      modalRef.current.classList.add("zoom-out");
+    }
     setTimeout(() => setModalOpen(false), 300);
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
       const scrollThreshold = window.innerWidth <= 768 ? 100 : 300;
       if (window.scrollY > scrollThreshold) {
@@ -32,11 +37,12 @@ const OnlyMobile = () => {
         window.removeEventListener("scroll", handleScroll);
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div
+    <div ref={modalRef}
       className={`fixed w-full p-2 z-[80] bottom-0 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}

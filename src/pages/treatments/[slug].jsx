@@ -2,7 +2,7 @@ import SubBanner from "@/components/global/SubBanner";
 import RelatedTreatment from "@/components/treatments/RelatedTreatment";
 import TreatMentAbout from "@/components/treatments/TreatMentAbout";
 import WebsiteTemplate from "@/templates/WebsiteTemplate";
-import { fetchSingleTreatment, fetchTreatments } from "@/lib/api/treatments";
+import { fetchSingleTreatment } from "@/lib/api/treatments";
 import { getGlobalData } from "@/lib/staticData";
 
 export default function Treatments({
@@ -10,6 +10,8 @@ export default function Treatments({
   relatedTreatments,
   treatments,
 }) {
+  if (!treatment) return null;
+
   return (
     <WebsiteTemplate
       title={treatment.metaTitle || treatment.treatmentName}
@@ -32,28 +34,27 @@ export default function Treatments({
 }
 
 export async function getStaticPaths() {
-  const domain = "dentitydental.in";
-  const res = await fetchTreatments({ domain });
-
-  const treatments = res?.data || [];
-
-  const paths = treatments.map((item) => ({
-    params: { slug: item.slug },
-  }));
-
   return {
-    paths,
-    fallback: "blocking", // better for dynamic CMS data
+    paths: [],
+    fallback: "blocking",
   };
 }
 
+
+
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const global = await getGlobalData();
 
   try {
+    const global = await getGlobalData();
     const res = await fetchSingleTreatment(slug);
-    const [treatment, relatedTreatments] = res?.data || [];
+
+    if (!res || !res.success) {
+      return { notFound: true };
+    }
+
+    const treatment = res?.data?.[0] || null;
+    const relatedTreatments = res?.data?.[1] || [];
 
     if (!treatment) {
       return { notFound: true };
@@ -62,12 +63,14 @@ export async function getStaticProps({ params }) {
     return {
       props: {
         treatment,
-        relatedTreatments: relatedTreatments || [],
-        treatments: global.treatments || [],
+        relatedTreatments,
+        treatments: global?.treatments || [],
       },
       revalidate: 60,
     };
   } catch (error) {
-    return { notFound: true };
+    return {
+      notFound: true,
+    };
   }
 }
