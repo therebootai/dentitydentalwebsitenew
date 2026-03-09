@@ -7,7 +7,7 @@ import { RiCloseLine, RiMenuAddLine } from "react-icons/ri";
 import { FaRegWindowClose } from "react-icons/fa";
 import EnquiryBox from "./EnquiryBox";
 
-export default function NavBar({treatments }) {
+export default function NavBar({ treatments }) {
   const [dropdownStates, setDropdownStates] = useState({});
   const [menuopen, setMenuopen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -16,9 +16,6 @@ export default function NavBar({treatments }) {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
-
-
-
 
   const openModal = (componentName) => {
     setSelectedComponent(componentName);
@@ -55,7 +52,6 @@ export default function NavBar({treatments }) {
       [index]: !dropdownStates[index],
     });
   };
-
 
   const NavElement = [
     { name: "Home", link: "/" },
@@ -124,13 +120,13 @@ export default function NavBar({treatments }) {
               className="rounded-md px-2 lg:px-4 relative h-[2rem] lg:h-[2.5rem] bg-site-main buttonshinehover text-white  flex justify-center gap-2 lg:gap-3 items-center"
             >
               <div className="relative w-4 h-4">
-               <img
-  src="/images/patientcornericon.svg"
-  alt="patientcornericon"
-  aria-hidden="true"
-  width={16}
-  height={16}
-/>
+                <img
+                  src="/images/patientcornericon.svg"
+                  alt="patientcornericon"
+                  aria-hidden="true"
+                  width={16}
+                  height={16}
+                />
               </div>
               <span>Patient Corner</span>
             </button>
@@ -227,18 +223,18 @@ export default function NavBar({treatments }) {
                   <button
                     onClick={() => toggleDropdown(index)}
                     onMouseEnter={() => {
-    setDropdownStates(prev => ({ ...prev, [index]: true }));
-  }}
-                     aria-expanded={!!dropdownStates[index]}
-  aria-haspopup="true"
+                      setDropdownStates((prev) => ({ ...prev, [index]: true }));
+                    }}
+                    aria-expanded={!!dropdownStates[index]}
+                    aria-haspopup="true"
                     className="flex flex-row gap-2 items-center"
                   >
                     <div>{navbar.name} </div>
                   </button>
                   {dropdownStates[index] && (
-                    <div className="absolute top-10  -translate-x-1/4 px-4 z-50   flex justify-start">
+                    <div className="absolute top-10 w-full left-0   px-4 z-50  flex justify-center items-center  ">
                       <div
-                        className={`grid bg-white/90 gap-2 ${getGridColumnsClass(
+                        className={`grid bg-white/90 border-2 gap-2 ${getGridColumnsClass(
                           navbar.dropdownItems,
                         )}`}
                       >

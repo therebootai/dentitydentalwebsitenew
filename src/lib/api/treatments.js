@@ -2,7 +2,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export async function fetchTreatments({
   page = 1,
-  limit = 10,
+  limit = 50,
   domain,
 }) {
   const params = new URLSearchParams();
